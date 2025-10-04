@@ -40,9 +40,6 @@ export const translations = {
         "langTh": "ไทย",
         "langEn": "English",
         "langJa": "日本語",
-        "sound": "เสียง",
-        "soundOn": "เปิด",
-        "soundOff": "ปิด",
         "close": "ปิด"
     }
   },
@@ -85,9 +82,6 @@ export const translations = {
         "langTh": "ไทย",
         "langEn": "English",
         "langJa": "日本語",
-        "sound": "Sound",
-        "soundOn": "On",
-        "soundOff": "Off",
         "close": "Close"
     }
   },
@@ -130,9 +124,6 @@ export const translations = {
         "langTh": "タイ語",
         "langEn": "英語",
         "langJa": "日本語",
-        "sound": "サウンド",
-        "soundOn": "オン",
-        "soundOff": "オフ",
         "close": "閉じる"
     }
   }

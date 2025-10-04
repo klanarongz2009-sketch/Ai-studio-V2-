@@ -1,4 +1,3 @@
-
 import { ChangeDetectionStrategy, Component, output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SettingsService, Theme } from '../../services/settings.service';
@@ -24,7 +23,6 @@ export class SettingsComponent {
 
   currentTheme = this.settingsService.theme;
   currentLanguage = this.settingsService.language;
-  soundEnabled = this.settingsService.soundEnabled;
 
   setTheme(theme: Theme) {
     this.soundService.playSound('click');
@@ -35,11 +33,6 @@ export class SettingsComponent {
     this.soundService.playSound('click');
     this.settingsService.setLanguage(language);
     this.translationService.setLanguage(language);
-  }
-
-  setSoundEnabled(enabled: boolean) {
-    this.soundService.playSound('click');
-    this.settingsService.setSoundEnabled(enabled);
   }
 
   onClose() {

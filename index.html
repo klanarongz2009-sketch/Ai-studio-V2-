@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI STUDIO (V2)</title>
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#080c2b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* --- THEME COLORS --- */
+      /* Dark theme (default) */
+      :root {
+        --color-brand-magenta: #ff00ff;
+        --color-brand-cyan: #00ffff;
+        --color-brand-yellow: #ffff00;
+        --color-brand-lime: #00ff00;
+        
+        --color-bg: #080c2b; /* Deep space blue */
+        --color-text-primary: #f0f0f0;
+        --color-text-secondary: rgba(240, 240, 240, 0.7);
+        --color-text-inverted: #080c2b;
+        --color-border-primary: var(--color-brand-cyan);
+        --color-border-secondary: rgba(0, 255, 255, 0.5);
+        --color-surface-primary: transparent; /* Outline buttons */
+        --color-surface-secondary: rgba(8, 12, 43, 0.85); /* Modal BG */
+        --color-shadow: var(--color-brand-cyan);
+      }
+      /* Light theme */
+      body.theme-light {
+        --color-bg: #E2E8F0; /* slate-200 */
+        --color-text-primary: #1E293B; /* slate-800 */
+        --color-text-secondary: rgba(30, 41, 59, 0.7);
+        --color-text-inverted: #E2E8F0;
+        --color-border-primary: #1E293B;
+        --color-border-secondary: rgba(30, 41, 59, 0.5);
+        --color-surface-primary: rgba(255, 255, 255, 0.6); /* Semi-transparent white buttons */
+        --color-surface-secondary: rgba(226, 232, 240, 0.9); /* Modal BG */
+        --color-shadow: #1E293B;
+      }
+      
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+            0deg,
+            rgba(128, 128, 128, 0.05),
+            rgba(128, 128, 128, 0.05) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.5;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      main#main-content > * {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+      .sidebar {
+          transform: translateX(-100%);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .sidebar-overlay {
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease-out;
+      }
+      .sidebar.open {
+          transform: translateX(0);
+      }
+      .sidebar-overlay.open {
+          opacity: 1;
+          pointer-events: auto;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'press-start': ['"Press Start 2P"', 'cursive'],
+            },
+            boxShadow: {
+              'pixel': '4px 4px 0px var(--color-shadow)',
+              'pixel-active': '2px 2px 0px var(--color-shadow)',
+              'pixel-disabled': '2px 2px 0px var(--color-border-secondary)',
+            },
+            colors: {
+              'background': 'var(--color-bg)',
+              'text-primary': 'var(--color-text-primary)',
+              'text-secondary': 'var(--color-text-secondary)',
+              'text-inverted': 'var(--color-text-inverted)',
+              'border-primary': 'var(--color-border-primary)',
+              'border-secondary': 'var(--color-border-secondary)',
+              'surface-primary': 'var(--color-surface-primary)',
+              'surface-secondary': 'var(--color-surface-secondary)',
+              'brand-magenta': 'var(--color-brand-magenta)',
+              'brand-cyan': 'var(--color-brand-cyan)',
+              'brand-yellow': 'var(--color-brand-yellow)',
+              'brand-lime': 'var(--color-brand-lime)',
+            }
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@google/genai": "https://next.esm.sh/@google/genai@^1.22.0?external=rxjs",
+    "@angular/forms": "https://next.esm.sh/@angular/forms@^20.3.3?external=rxjs",
+    "@angular/common/http": "https://next.esm.sh/@angular/common@^20.3.3/http?external=rxjs",
+    "@angular/common": "https://next.esm.sh/@angular/common@^20.3.3?external=rxjs",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^20.3.3?external=rxjs",
+    "@angular/compiler": "https://next.esm.sh/@angular/compiler@^20.3.3?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^20.3.3?external=rxjs"
+  }
+}
+</script>
+</head>
+<body class="bg-background text-text-primary font-press-start text-sm antialiased">
+    <app-root></app-root>
+</body>
+</html>

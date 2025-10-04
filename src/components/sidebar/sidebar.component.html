@@ -1,0 +1,50 @@
+
+<div 
+  (click)="closeSidebar.emit()" 
+  [class.open]="isOpen()"
+  class="sidebar-overlay fixed inset-0 bg-black/50 z-40">
+</div>
+<aside 
+  [class.open]="isOpen()"
+  class="sidebar fixed top-0 left-0 h-full w-64 bg-background border-r-4 border-border-primary z-50 p-4 flex flex-col">
+  <nav>
+    <ul>
+      <li>
+        <button (click)="navigate.emit('imageGenerator')"
+                [class.bg-brand-magenta]="activePage() === 'imageGenerator'"
+                [class.text-text-inverted]="activePage() === 'imageGenerator'"
+                class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
+          <app-image-icon />
+          <span>{{ t()('sidebar.imageGenerator') }}</span>
+        </button>
+      </li>
+      <li>
+        <button (click)="navigate.emit('gallery')"
+                [class.bg-brand-magenta]="activePage() === 'gallery'"
+                [class.text-text-inverted]="activePage() === 'gallery'"
+                class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
+          <app-gallery-icon />
+          <span>{{ t()('sidebar.gallery') }}</span>
+        </button>
+      </li>
+      <li>
+        <button (click)="navigate.emit('aiZone')"
+                [class.bg-brand-magenta]="activePage() === 'aiZone'"
+                [class.text-text-inverted]="activePage() === 'aiZone'"
+                class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
+          <app-ai-zone-icon />
+          <span>{{ t()('sidebar.aiZone') }}</span>
+        </button>
+      </li>
+      <li>
+        <button (click)="navigate.emit('aiChat')"
+                [class.bg-brand-magenta]="activePage() === 'aiChat'"
+                [class.text-text-inverted]="activePage() === 'aiChat'"
+                class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
+          <app-chat-icon />
+          <span>{{ t()('sidebar.aiChat') }}</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</aside>

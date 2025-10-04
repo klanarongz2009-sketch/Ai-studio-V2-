@@ -1,0 +1,8 @@
+{
+  "name": "AI STUDIO (V2)",
+  "description": "สตูดิโอสร้างสรรค์ผลงานด้วย AI สุดล้ำ สร้างภาพ, วิดีโอ, และอื่นๆ อีกมากมายด้วยพลังของ Generative AI",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

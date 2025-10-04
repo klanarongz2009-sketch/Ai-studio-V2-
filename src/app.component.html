@@ -1,0 +1,34 @@
+
+<div class="relative min-h-screen">
+  <app-header 
+    (toggleSidebar)="isSidebarOpen.set(!isSidebarOpen())" 
+    (openSettings)="isSettingsOpen.set(true)"
+  />
+  <app-sidebar 
+    [isOpen]="isSidebarOpen()" 
+    [activePage]="activePage()"
+    (closeSidebar)="isSidebarOpen.set(false)"
+    (navigate)="changePage($event)"
+  />
+
+  <main id="main-content" class="p-4 pt-24 md:p-8 md:pt-28">
+    @switch (activePage()) {
+      @case ('imageGenerator') {
+        <app-image-generator />
+      }
+      @case ('gallery') {
+        <app-gallery />
+      }
+      @case ('aiZone') {
+        <app-ai-zone />
+      }
+      @case ('aiChat') {
+        <app-ai-chat />
+      }
+    }
+  </main>
+
+  @if (isSettingsOpen()) {
+    <app-settings (closeSettings)="isSettingsOpen.set(false)" />
+  }
+</div>

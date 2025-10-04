@@ -1,4 +1,3 @@
-
 <div class="relative min-h-screen">
   <app-header 
     (toggleSidebar)="toggleSidebar()" 
@@ -16,6 +15,9 @@
       @case ('imageGenerator') {
         <app-image-generator />
       }
+      @case ('videoGenerator') {
+        <app-video-generator />
+      }
       @case ('gallery') {
         <app-gallery />
       }
@@ -29,6 +31,12 @@
   </main>
 
   @if (isSettingsOpen()) {
-    <app-settings (closeSettings)="closeSettings()" />
+    <app-settings 
+      (closeSettings)="closeSettings()"
+      (openBetaInfo)="openBetaInfo()"
+     />
+  }
+  @if (isBetaInfoOpen()) {
+    <app-beta-info (close)="closeBetaInfo()" />
   }
 </div>

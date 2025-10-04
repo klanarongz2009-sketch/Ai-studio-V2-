@@ -1,4 +1,3 @@
-
 import { ChangeDetectionStrategy, Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,12 +8,14 @@ import { SoundService } from './services/sound.service';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ImageGeneratorComponent } from './components/image-generator/image-generator.component';
+import { VideoGeneratorComponent } from './components/video-generator/video-generator.component';
 import { AiChatComponent } from './components/ai-chat/ai-chat.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { AiZoneComponent } from './components/ai-zone/ai-zone.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { BetaInfoComponent } from './components/beta-info/beta-info.component';
 
-export type Page = 'imageGenerator' | 'gallery' | 'aiZone' | 'aiChat';
+export type Page = 'imageGenerator' | 'videoGenerator' | 'gallery' | 'aiZone' | 'aiChat';
 
 @Component({
   selector: 'app-root',
@@ -26,10 +27,12 @@ export type Page = 'imageGenerator' | 'gallery' | 'aiZone' | 'aiChat';
     HeaderComponent,
     SidebarComponent,
     ImageGeneratorComponent,
+    VideoGeneratorComponent,
     AiChatComponent,
     GalleryComponent,
     AiZoneComponent,
-    SettingsComponent
+    SettingsComponent,
+    BetaInfoComponent,
   ],
 })
 export class AppComponent {
@@ -39,7 +42,8 @@ export class AppComponent {
 
   isSidebarOpen = signal(false);
   isSettingsOpen = signal(false);
-  activePage = signal<Page>('imageGenerator');
+  isBetaInfoOpen = signal(false);
+  activePage = signal<Page>('videoGenerator');
 
   constructor() {
     // Initialize services to load settings and translations
@@ -65,6 +69,17 @@ export class AppComponent {
 
   closeSettings() {
     this.isSettingsOpen.set(false);
+    this.soundService.playSound('close');
+  }
+
+  openBetaInfo() {
+    this.isSettingsOpen.set(false);
+    this.isBetaInfoOpen.set(true);
+    this.soundService.playSound('open');
+  }
+
+  closeBetaInfo() {
+    this.isBetaInfoOpen.set(false);
     this.soundService.playSound('close');
   }
   

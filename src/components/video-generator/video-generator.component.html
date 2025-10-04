@@ -1,0 +1,57 @@
+
+<div class="max-w-3xl mx-auto">
+  <h2 class="text-2xl text-center mb-6 text-brand-cyan">{{ t()('videoGenerator.title') }}</h2>
+
+  <div class="p-4 border-4 border-border-primary bg-surface-secondary/50 mb-6">
+    <label for="prompt-video" class="block mb-2 text-text-secondary">{{ t()('videoGenerator.promptLabel') }}</label>
+    <textarea 
+      id="prompt-video" 
+      [ngModel]="prompt()"
+      (ngModelChange)="prompt.set($event)"
+      [placeholder]="t()('videoGenerator.promptPlaceholder')"
+      rows="3" 
+      class="w-full p-2 bg-background border-2 border-border-secondary text-text-primary focus:border-brand-yellow focus:outline-none focus:ring-0 resize-none"
+      [disabled]="isLoading()"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+    <button 
+      (click)="onGenerate()" 
+      [disabled]="isGenerateDisabled()"
+      class="px-6 py-3 border-2 border-border-primary text-text-primary text-lg bg-brand-lime text-text-inverted shadow-pixel hover:shadow-pixel-active active:translate-x-1 active:translate-y-1 active:shadow-none disabled:bg-text-secondary disabled:text-text-primary disabled:shadow-pixel-disabled disabled:cursor-not-allowed transition-all duration-150">
+        @if(isLoading()) {
+          <span>{{ t()('videoGenerator.generating') }}</span>
+        } @else {
+          <span>{{ t()('videoGenerator.generate') }}</span>
+        }
+    </button>
+    <button 
+      (click)="onClear()" 
+      [disabled]="isLoading()"
+      class="px-6 py-3 border-2 border-border-primary text-text-primary text-lg bg-surface-primary shadow-pixel hover:shadow-pixel-active hover:bg-brand-magenta hover:text-text-inverted active:translate-x-1 active:translate-y-1 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-150">
+      {{ t()('videoGenerator.clear') }}
+    </button>
+  </div>
+  
+  <div class="w-full aspect-video border-4 border-border-primary p-4 bg-black/20 flex items-center justify-center">
+    @if (isLoading()) {
+      <div class="text-center">
+        <div class="w-16 h-16 border-4 border-dashed border-brand-yellow rounded-full animate-spin mb-4 mx-auto"></div>
+        <p>{{ loadingMessage() }}</p>
+      </div>
+    } @else if (error()) {
+      <div class="text-center text-brand-magenta p-4">
+        <h3 class="text-xl mb-2">{{ t()('outputDisplay.errorTitle') }}</h3>
+        <p class="text-text-primary">{{ error() }}</p>
+      </div>
+    } @else if (generatedVideoUrl()) {
+      <video [src]="generatedVideoUrl()" class="max-w-full max-h-full object-contain" controls autoplay loop [attr.aria-label]="t()('outputDisplay.altGeneratedFrom') + ' ' + prompt()"></video>
+    } @else {
+      <div class="text-center text-text-secondary">
+        <h3 class="text-xl mb-2 text-text-primary">{{ t()('outputDisplay.welcomeTitle') }}</h3>
+        <p>{{ t()('outputDisplay.welcomeMessage') }}</p>
+      </div>
+    }
+  </div>
+</div>

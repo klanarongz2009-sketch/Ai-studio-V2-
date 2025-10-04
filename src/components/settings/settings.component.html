@@ -52,6 +52,17 @@
           </button>
         </div>
       </div>
+
+      <!-- Beta Info -->
+      <div>
+        <h3 class="text-lg mb-3 text-brand-cyan">{{ t()('settings.betaProgram') }}</h3>
+        <div class="flex">
+            <button (click)="onOpenBetaInfo()"
+                    class="flex-1 p-2 border-2 border-border-primary text-center hover:bg-brand-yellow hover:text-text-inverted transition-colors">
+              {{ t()('beta.learnMore') }}
+            </button>
+        </div>
+      </div>
       
     </div>
   </div>

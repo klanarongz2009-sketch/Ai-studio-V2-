@@ -1,5 +1,65 @@
+<div class="max-w-4xl mx-auto flex flex-col h-[calc(100vh-12rem)] md:h-[calc(100vh-14rem)] border-4 border-border-primary bg-background/50">
+  <!-- Header -->
+  <header class="p-4 border-b-4 border-border-primary bg-surface-secondary/50 flex-shrink-0">
+    <h2 class="text-xl md:text-2xl text-center text-brand-cyan">{{ t()('aiChat.title') }}</h2>
+  </header>
 
-<div class="text-center p-8 border-4 border-border-primary">
-  <h2 class="text-2xl text-brand-cyan mb-4">{{ t()('sidebar.aiChat') }}</h2>
-  <p class="text-text-secondary">AI Chat feature coming soon!</p>
+  <!-- Chat History -->
+  <div #chatContainer class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6">
+    @for (message of messages(); track $index) {
+      <div class="flex items-start gap-3" [class.flex-row-reverse]="message.role === 'user'">
+        <!-- Avatar -->
+        <div class="w-8 h-8 flex-shrink-0 border-2 border-border-secondary flex items-center justify-center p-1" [class.bg-brand-magenta]="message.role === 'user'" [class.bg-brand-cyan]="message.role === 'model'">
+          @if (message.role === 'user') {
+            <app-user-icon />
+          } @else {
+            <app-ai-icon />
+          }
+        </div>
+        
+        <!-- Message Bubble -->
+        <div class="max-w-md lg:max-w-xl">
+          <p class="font-bold mb-1 text-sm" [class.text-right]="message.role === 'user'">
+            {{ message.role === 'user' ? t()('aiChat.roleUser') : t()('aiChat.roleModel') }}
+          </p>
+          <div class="p-3 border-2 border-border-secondary text-text-primary bg-background/70 whitespace-pre-wrap">
+            {{ message.content }}
+            @if (isLoading() && message.role === 'model' && $index === messages().length - 1) {
+              <span class="inline-block w-2 h-4 bg-text-primary animate-pulse ml-1"></span>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Input Form -->
+  <footer class="p-4 border-t-4 border-border-primary bg-surface-secondary/50 flex-shrink-0">
+    @if (error()) {
+      <div class="text-brand-magenta mb-2 text-center text-sm p-2 bg-black/20 border-2 border-brand-magenta/50">{{ error() }}</div>
+    }
+    <form (submit)="sendMessage(); $event.preventDefault()" class="flex gap-2 md:gap-4 items-start">
+      <div class="flex-1">
+        <textarea 
+          [(ngModel)]="userInput"
+          name="userInput"
+          (keydown.enter)="!$event.shiftKey && (sendMessage() || $event.preventDefault())"
+          [placeholder]="t()('aiChat.promptPlaceholder')"
+          rows="1" 
+          class="w-full p-2 bg-background border-2 border-border-secondary text-text-primary focus:border-brand-yellow focus:outline-none focus:ring-0 resize-none"
+          [disabled]="isLoading()"
+        ></textarea>
+      </div>
+      <button 
+        type="submit"
+        [disabled]="isLoading() || userInput().trim().length === 0"
+        class="px-4 py-2 md:px-6 border-2 border-border-primary bg-brand-lime text-text-inverted shadow-pixel hover:shadow-pixel-active active:translate-x-px active:translate-y-px active:shadow-none disabled:bg-text-secondary disabled:text-text-primary disabled:shadow-pixel-disabled disabled:cursor-not-allowed transition-all duration-150">
+          @if (isLoading()) {
+            <span class="w-16 text-center">{{ t()('aiChat.sending') }}</span>
+          } @else {
+            <span class="w-16 text-center">{{ t()('aiChat.send') }}</span>
+          }
+      </button>
+    </form>
+  </footer>
 </div>

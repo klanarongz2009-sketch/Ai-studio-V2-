@@ -1,0 +1,42 @@
+<div class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" (click)="close.emit()">
+  <div class="w-full max-w-lg bg-background border-4 border-border-primary p-6" (click)="$event.stopPropagation()">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl text-brand-yellow">{{ t()('beta.title') }}</h2>
+      <button (click)="onClose()" class="p-2 border-2 border-border-primary hover:bg-brand-magenta hover:text-text-inverted">
+        <span class="sr-only">{{ t()('settings.close') }}</span>
+        <app-close-icon />
+      </button>
+    </div>
+
+    <div class="space-y-4 text-text-secondary max-h-[70vh] overflow-y-auto pr-2 text-sm leading-relaxed">
+      <p class="text-text-primary">{{ t()('beta.description') }}</p>
+      
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('beta.sectionTitle1') }}</h3>
+      <p>{{ t()('beta.sectionContent1') }}</p>
+
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('beta.sectionTitle2') }}</h3>
+      <div class="space-y-3 pl-4 border-l-2 border-border-secondary">
+        <div>
+            <h4 class="font-bold text-text-primary">{{ t()('beta.sectionContent2_1_title') }}</h4>
+            <p>{{ t()('beta.sectionContent2_1_text') }}</p>
+        </div>
+         <div>
+            <h4 class="font-bold text-text-primary">{{ t()('beta.sectionContent2_2_title') }}</h4>
+            <p>{{ t()('beta.sectionContent2_2_text') }}</p>
+        </div>
+         <div>
+            <h4 class="font-bold text-text-primary">{{ t()('beta.sectionContent2_3_title') }}</h4>
+            <p>{{ t()('beta.sectionContent2_3_text') }}</p>
+        </div>
+      </div>
+
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('beta.sectionTitle3') }}</h3>
+      <p>{{ t()('beta.sectionContent3') }}</p>
+      
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('beta.sectionTitle4') }}</h3>
+      <p>{{ t()('beta.sectionContent4') }}</p>
+
+      <p class="text-brand-lime font-bold text-center pt-4 !mt-8">{{ t()('beta.thanks') }}</p>
+    </div>
+  </div>
+</div>

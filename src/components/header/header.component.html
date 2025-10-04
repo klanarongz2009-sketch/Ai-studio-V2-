@@ -1,14 +1,14 @@
 
 <header role="banner" class="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm border-b-4 border-border-primary">
   <div class="container mx-auto flex items-center justify-between p-4">
-    <button (click)="toggleSidebar.emit()" class="p-2 border-2 border-border-primary text-text-primary hover:bg-brand-magenta hover:text-text-inverted active:translate-y-px active:translate-x-px">
+    <button (click)="onToggleSidebar()" class="p-2 border-2 border-border-primary text-text-primary hover:bg-brand-magenta hover:text-text-inverted active:translate-y-px active:translate-x-px">
       <span class="sr-only">{{ t()('header.menu') }}</span>
       <app-menu-icon />
     </button>
     <h1 class="text-base sm:text-lg md:text-xl text-center mx-2 text-brand-yellow drop-shadow-[2px_2px_0_rgba(0,0,0,0.7)] select-none">
       {{ t()('header.title') }}
     </h1>
-    <button (click)="openSettings.emit()" class="p-2 border-2 border-border-primary text-text-primary hover:bg-brand-cyan hover:text-text-inverted active:translate-y-px active:translate-x-px">
+    <button (click)="onOpenSettings()" class="p-2 border-2 border-border-primary text-text-primary hover:bg-brand-cyan hover:text-text-inverted active:translate-y-px active:translate-x-px">
       <span class="sr-only">{{ t()('header.settings') }}</span>
       <app-settings-icon />
     </button>

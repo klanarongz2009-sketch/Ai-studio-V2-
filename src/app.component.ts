@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { SettingsService } from './services/settings.service';
 import { TranslationService } from './services/translation.service';
+import { SoundService } from './services/sound.service';
 
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -34,6 +35,7 @@ export type Page = 'imageGenerator' | 'gallery' | 'aiZone' | 'aiChat';
 export class AppComponent {
   settingsService = inject(SettingsService);
   translationService = inject(TranslationService);
+  soundService = inject(SoundService);
 
   isSidebarOpen = signal(false);
   isSettingsOpen = signal(false);
@@ -43,10 +45,33 @@ export class AppComponent {
     // Initialize services to load settings and translations
     this.settingsService.init();
     this.translationService.init(this.settingsService.language());
+    this.soundService.preload();
   }
   
   changePage(page: Page) {
     this.activePage.set(page);
     this.isSidebarOpen.set(false);
+  }
+
+  toggleSidebar() {
+    this.soundService.playSound(this.isSidebarOpen() ? 'close' : 'open');
+    this.isSidebarOpen.update(v => !v);
+  }
+
+  openSettings() {
+    this.isSettingsOpen.set(true);
+    this.soundService.playSound('open');
+  }
+
+  closeSettings() {
+    this.isSettingsOpen.set(false);
+    this.soundService.playSound('close');
+  }
+  
+  closeSidebar() {
+    if (this.isSidebarOpen()) {
+      this.isSidebarOpen.set(false);
+      this.soundService.playSound('close');
+    }
   }
 }

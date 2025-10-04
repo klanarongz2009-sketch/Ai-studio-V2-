@@ -20,7 +20,10 @@ export const translations = {
         "promptPlaceholder": "เช่น อัศวินขี่ไดโนเสาร์ในอวกาศ",
         "generate": "สร้าง",
         "generating": "กำลังสร้าง...",
-        "clear": "ล้าง"
+        "clear": "ล้าง",
+        "getIdeas": "ขอไอเดีย",
+        "ideasModalTitle": "ไอเดียสำหรับ Prompt",
+        "loadingIdeas": "กำลังหาไอเดีย..."
     },
     "outputDisplay": {
         "welcomeTitle": "ยินดีต้อนรับ!",
@@ -37,6 +40,9 @@ export const translations = {
         "langTh": "ไทย",
         "langEn": "English",
         "langJa": "日本語",
+        "sound": "เสียง",
+        "soundOn": "เปิด",
+        "soundOff": "ปิด",
         "close": "ปิด"
     }
   },
@@ -59,7 +65,10 @@ export const translations = {
         "promptPlaceholder": "e.g., A knight riding a dinosaur in space",
         "generate": "Generate",
         "generating": "Generating...",
-        "clear": "Clear"
+        "clear": "Clear",
+        "getIdeas": "Get Ideas",
+        "ideasModalTitle": "Prompt Ideas",
+        "loadingIdeas": "Getting ideas..."
     },
     "outputDisplay": {
         "welcomeTitle": "Welcome!",
@@ -76,6 +85,9 @@ export const translations = {
         "langTh": "ไทย",
         "langEn": "English",
         "langJa": "日本語",
+        "sound": "Sound",
+        "soundOn": "On",
+        "soundOff": "Off",
         "close": "Close"
     }
   },
@@ -98,7 +110,10 @@ export const translations = {
         "promptPlaceholder": "例：宇宙で恐竜に乗る騎士",
         "generate": "生成",
         "generating": "生成中...",
-        "clear": "クリア"
+        "clear": "クリア",
+        "getIdeas": "アイデアを得る",
+        "ideasModalTitle": "プロンプトのアイデア",
+        "loadingIdeas": "アイデアを取得中..."
     },
     "outputDisplay": {
         "welcomeTitle": "ようこそ！",
@@ -115,6 +130,9 @@ export const translations = {
         "langTh": "タイ語",
         "langEn": "英語",
         "langJa": "日本語",
+        "sound": "サウンド",
+        "soundOn": "オン",
+        "soundOff": "オフ",
         "close": "閉じる"
     }
   }

@@ -1,13 +1,13 @@
 
 <div class="relative min-h-screen">
   <app-header 
-    (toggleSidebar)="isSidebarOpen.set(!isSidebarOpen())" 
-    (openSettings)="isSettingsOpen.set(true)"
+    (toggleSidebar)="toggleSidebar()" 
+    (openSettings)="openSettings()"
   />
   <app-sidebar 
     [isOpen]="isSidebarOpen()" 
     [activePage]="activePage()"
-    (closeSidebar)="isSidebarOpen.set(false)"
+    (closeSidebar)="closeSidebar()"
     (navigate)="changePage($event)"
   />
 
@@ -29,6 +29,6 @@
   </main>
 
   @if (isSettingsOpen()) {
-    <app-settings (closeSettings)="isSettingsOpen.set(false)" />
+    <app-settings (closeSettings)="closeSettings()" />
   }
 </div>

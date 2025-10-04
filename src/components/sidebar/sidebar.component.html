@@ -10,7 +10,7 @@
   <nav>
     <ul>
       <li>
-        <button (click)="navigate.emit('imageGenerator')"
+        <button (click)="onNavigate('imageGenerator')"
                 [class.bg-brand-magenta]="activePage() === 'imageGenerator'"
                 [class.text-text-inverted]="activePage() === 'imageGenerator'"
                 class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
@@ -19,7 +19,7 @@
         </button>
       </li>
       <li>
-        <button (click)="navigate.emit('gallery')"
+        <button (click)="onNavigate('gallery')"
                 [class.bg-brand-magenta]="activePage() === 'gallery'"
                 [class.text-text-inverted]="activePage() === 'gallery'"
                 class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
@@ -28,7 +28,7 @@
         </button>
       </li>
       <li>
-        <button (click)="navigate.emit('aiZone')"
+        <button (click)="onNavigate('aiZone')"
                 [class.bg-brand-magenta]="activePage() === 'aiZone'"
                 [class.text-text-inverted]="activePage() === 'aiZone'"
                 class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
@@ -37,7 +37,7 @@
         </button>
       </li>
       <li>
-        <button (click)="navigate.emit('aiChat')"
+        <button (click)="onNavigate('aiChat')"
                 [class.bg-brand-magenta]="activePage() === 'aiChat'"
                 [class.text-text-inverted]="activePage() === 'aiChat'"
                 class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">

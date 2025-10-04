@@ -1,4 +1,3 @@
-
 import { effect, Injectable, signal } from '@angular/core';
 import { Language } from '../models/translation.model';
 
@@ -8,6 +7,7 @@ export type Theme = 'light' | 'dark';
 export class SettingsService {
   theme = signal<Theme>('dark');
   language = signal<Language>('th');
+  soundEnabled = signal<boolean>(true);
 
   constructor() {
     effect(() => {
@@ -24,6 +24,11 @@ export class SettingsService {
         const currentLanguage = this.language();
         localStorage.setItem('app-language', currentLanguage);
     });
+
+    effect(() => {
+      const sounds = this.soundEnabled();
+      localStorage.setItem('app-sound-enabled', JSON.stringify(sounds));
+    });
   }
 
   init() {
@@ -36,6 +41,11 @@ export class SettingsService {
     if (savedLang) {
       this.language.set(savedLang);
     }
+
+    const savedSound = localStorage.getItem('app-sound-enabled');
+    if (savedSound) {
+      this.soundEnabled.set(JSON.parse(savedSound));
+    }
   }
 
   setTheme(theme: Theme) {
@@ -44,5 +54,9 @@ export class SettingsService {
 
   setLanguage(language: Language) {
     this.language.set(language);
+  }
+
+  setSoundEnabled(enabled: boolean) {
+    this.soundEnabled.set(enabled);
   }
 }

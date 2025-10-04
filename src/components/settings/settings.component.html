@@ -3,7 +3,7 @@
   <div class="w-full max-w-md bg-background border-4 border-border-primary p-6" (click)="$event.stopPropagation()">
     <div class="flex justify-between items-center mb-6">
       <h2 class="text-2xl text-brand-yellow">{{ t()('settings.title') }}</h2>
-      <button (click)="closeSettings.emit()" class="p-2 border-2 border-border-primary hover:bg-brand-magenta hover:text-text-inverted">
+      <button (click)="onClose()" class="p-2 border-2 border-border-primary hover:bg-brand-magenta hover:text-text-inverted">
         <span class="sr-only">{{ t()('settings.close') }}</span>
         <app-close-icon />
       </button>
@@ -50,6 +50,25 @@
                   [class.text-text-inverted]="currentLanguage() === 'ja'"
                   class="flex-1 p-2 border-2 border-border-primary text-center">
             {{ t()('settings.langJa') }}
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sound Settings -->
+      <div>
+        <h3 class="text-lg mb-3 text-brand-cyan">{{ t()('settings.sound') }}</h3>
+        <div class="flex gap-2">
+          <button (click)="setSoundEnabled(true)"
+                  [class.bg-brand-cyan]="soundEnabled()"
+                  [class.text-text-inverted]="soundEnabled()"
+                  class="flex-1 p-2 border-2 border-border-primary text-center">
+            {{ t()('settings.soundOn') }}
+          </button>
+          <button (click)="setSoundEnabled(false)"
+                  [class.bg-brand-cyan]="!soundEnabled()"
+                  [class.text-text-inverted]="!soundEnabled()"
+                  class="flex-1 p-2 border-2 border-border-primary text-center">
+            {{ t()('settings.soundOff') }}
           </button>
         </div>
       </div>

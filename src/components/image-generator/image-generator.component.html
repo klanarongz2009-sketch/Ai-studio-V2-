@@ -1,4 +1,3 @@
-
 <div class="max-w-3xl mx-auto">
   <h2 class="text-2xl text-center mb-6 text-brand-cyan">{{ t()('imageGenerator.title') }}</h2>
 
@@ -25,6 +24,12 @@
         } @else {
           <span>{{ t()('imageGenerator.generate') }}</span>
         }
+    </button>
+    <button
+      (click)="getIdeas()"
+      [disabled]="isLoading()"
+      class="px-6 py-3 border-2 border-border-primary text-text-primary text-lg bg-brand-cyan text-text-inverted shadow-pixel hover:shadow-pixel-active active:translate-x-1 active:translate-y-1 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-150">
+      {{ t()('imageGenerator.getIdeas') }}
     </button>
     <button 
       (click)="onClear()" 
@@ -54,4 +59,43 @@
       </div>
     }
   </div>
+
+  <!-- Ideas Modal -->
+  @if (isIdeasModalOpen()) {
+    <div class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" (click)="closeIdeasModal()">
+      <div class="w-full max-w-lg bg-background border-4 border-border-primary p-6" (click)="$event.stopPropagation()">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl text-brand-yellow">{{ t()('imageGenerator.ideasModalTitle') }}</h3>
+          <button (click)="closeIdeasModal()" class="p-2 border-2 border-border-primary hover:bg-brand-magenta hover:text-text-inverted">
+            <span class="sr-only">{{ t()('settings.close') }}</span>
+            <app-close-icon />
+          </button>
+        </div>
+
+        <div class="min-h-[200px] max-h-[60vh] overflow-y-auto pr-2">
+          @if (isFetchingIdeas()) {
+            <div class="flex flex-col items-center justify-center h-full">
+              <div class="w-12 h-12 border-4 border-dashed border-brand-yellow rounded-full animate-spin mb-4"></div>
+              <p>{{ t()('imageGenerator.loadingIdeas') }}</p>
+            </div>
+          } @else if (ideasError()) {
+            <div class="text-center text-brand-magenta p-4">
+              <h4 class="text-xl mb-2">{{ t()('outputDisplay.errorTitle') }}</h4>
+              <p class="text-text-primary text-sm">{{ ideasError() }}</p>
+            </div>
+          } @else if (ideas().length > 0) {
+            <ul class="space-y-3">
+              @for (idea of ideas(); track idea) {
+                <li>
+                  <button (click)="selectIdea(idea)" class="w-full text-left p-3 border-2 border-border-secondary hover:border-brand-cyan hover:bg-brand-cyan/10 transition-colors">
+                    {{ idea }}
+                  </button>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </div>
+  }
 </div>

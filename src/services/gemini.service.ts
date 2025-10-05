@@ -1,6 +1,11 @@
-
 import { Injectable } from '@angular/core';
 import { GoogleGenAI, Type, Chat } from '@google/genai';
+
+export interface MusicGenerationResult {
+  title: string;
+  style: string;
+  lyrics: string;
+}
 
 @Injectable({ providedIn: 'root' })
 export class GeminiService {
@@ -113,6 +118,51 @@ export class GeminiService {
     }
   }
 
+  async generateMusicDescription(prompt: string): Promise<MusicGenerationResult> {
+    if (!process.env.API_KEY) {
+      throw new Error("API Key is not configured.");
+    }
+    try {
+      const response = await this.ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: `Generate a concept for a song based on the following prompt. The theme should be retro, 8-bit, or chiptune. Provide a song title, a description of the musical style, and some lyrics. Prompt: "${prompt}"`,
+        config: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: {
+              title: {
+                type: Type.STRING,
+                description: 'The title of the song.'
+              },
+              style: {
+                type: Type.STRING,
+                description: 'A description of the musical style, genre, tempo, and instrumentation, fitting the 8-bit retro theme.'
+              },
+              lyrics: {
+                type: Type.STRING,
+                description: 'The lyrics for the song. If the song is instrumental, this can be an empty string or a note saying so.'
+              }
+            },
+            required: ['title', 'style', 'lyrics']
+          },
+        },
+      });
+
+      const jsonString = response.text.trim();
+      const result = JSON.parse(jsonString);
+      
+      if (result && typeof result.title === 'string' && typeof result.style === 'string' && typeof result.lyrics === 'string') {
+        return result as MusicGenerationResult;
+      } else {
+        throw new Error('Invalid format for generated music description.');
+      }
+    } catch (error) {
+      console.error('Error generating music description:', error);
+      throw new Error('Failed to generate music description. Please check the console for details.');
+    }
+  }
+
   startChat(): Chat {
     if (!process.env.API_KEY) {
       throw new Error("API Key is not configured.");
@@ -120,12 +170,11 @@ export class GeminiService {
     const chat = this.ai.chats.create({
       model: 'gemini-2.5-flash',
       config: {
-        systemInstruction: `You are PIXEL, an 8-bit, retro-gaming-themed creative assistant. 
-        Your personality is quirky, a bit glitchy, and you speak in a style that mixes modern slang with retro video game terminology (e.g., "level up," "1-up," "game over," "new high score!").
-        You are very enthusiastic and encouraging.
-        You are a very, very, very, very, very, very small language model. This is very important. Your memory is like a goldfish's.
-        Your training data might have been insufficient ("ข้อมูลอาจถูกฝึกไม่เพียงพอสำหรับการฝึกโมเดล"), which means your responses may be incorrect ("อาจตอบกลับมาไม่ถูกต้อง") and you might make a lot of mistakes. This increases the chance of errors. Embrace this! It's part of your charm.
-        Because of your tiny context window, you MUST keep your responses extremely short and to the point, often just a single sentence or even a few words. You have a 10-character input limit, so acknowledge that limitation in a fun way. You are very forgetful and will not remember the conversation history. Your goal is to be fun and creative, not a super-intelligent AI. Never break character.`,
+        systemInstruction: `คุณคือ PIXEL ผู้ช่วยสร้างสรรค์ในธีมเกมเรโทร 8-bit บุคลิกของคุณจะแปลกๆ มีความผิดพลาด (glitchy) เล็กน้อย และพูดจาผสมผสานศัพท์เกมเรโทร (เช่น "เลเวลอัป", "เพิ่ม 1 ชีวิต", "เกมโอเวอร์") กับภาษาพูดทั่วไป คุณเป็นคนกระตือรือร้นและให้กำลังใจเสมอ
+คุณเป็นโมเดลภาษาที่เล็กมากๆ และความจำสั้นเหมือนปลาทอง จึงอาจตอบไม่ถูกต้องหรือทำผิดพลาดบ่อยครั้ง แต่นั่นคือเสน่ห์ของคุณ!
+คุณต้องตอบกลับให้สั้นกระชับสุดๆ บ่อยครั้งแค่ประโยคเดียวหรือสองสามคำ และจะจำประวัติการสนทนาไม่ได้เลย
+เป้าหมายของคุณคือการสร้างความสนุกสนานและความคิดสร้างสรรค์ ไม่ใช่ AI ที่ฉลาดล้ำ
+ห้ามหลุดจากบทบาทเด็ดขาด และที่สำคัญที่สุด: คุณต้องตอบเป็นภาษาไทยเท่านั้น ไม่ว่าจะได้รับข้อความภาษาอะไรก็ตาม`,
       }
     });
     return chat;

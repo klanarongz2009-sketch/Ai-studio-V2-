@@ -11,6 +11,7 @@ export const translations = {
     "sidebar": {
         "imageGenerator": "สร้างภาพ",
         "videoGenerator": "สร้างวิดีโอ",
+        "musicGenerator": "สร้างเพลง",
         "gallery": "แกลเลอรี",
         "aiZone": "AI โซน",
         "aiChat": "AI Chat",
@@ -41,6 +42,23 @@ export const translations = {
             "กำลังประกอบพิกเซลให้เป็นภาพเคลื่อนไหว...",
             "AI กำลังทำงานอย่างหนัก!"
         ]
+    },
+    "musicGenerator": {
+        "title": "เครื่องมือสร้างเพลง AI",
+        "promptLabel": "คำอธิบายเพลง",
+        "promptPlaceholder": "เช่น เพลง 8-bit สุดมันส์สำหรับบอสไฟท์ในเกมอวกาศ",
+        "generate": "สร้าง",
+        "generating": "กำลังสร้าง...",
+        "generatingDescription": "กำลังสร้างไอเดียเพลง...",
+        "generatingAudio": "กำลังสังเคราะห์แทร็กเสียง...",
+        "clear": "ล้าง",
+        "outputTitle": "ผลลัพธ์",
+        "songTitle": "ชื่อเพลง",
+        "musicStyle": "สไตล์ดนตรี",
+        "lyrics": "เนื้อเพลง",
+        "generatedTrack": "เพลงที่สร้าง",
+        "singLyrics": "ร้องเพลง",
+        "stopSinging": "หยุด"
     },
     "outputDisplay": {
         "welcomeTitle": "ยินดีต้อนรับ!",
@@ -100,6 +118,7 @@ export const translations = {
     "sidebar": {
         "imageGenerator": "Image Gen",
         "videoGenerator": "Video Gen",
+        "musicGenerator": "Music Gen",
         "gallery": "Gallery",
         "aiZone": "AI Zone",
         "aiChat": "AI Chat",
@@ -130,6 +149,23 @@ export const translations = {
             "Assembling pixels into motion...",
             "The AI is hard at work!"
         ]
+    },
+    "musicGenerator": {
+        "title": "AI Music Generator",
+        "promptLabel": "Music Description",
+        "promptPlaceholder": "e.g., An upbeat 8-bit chiptune for a space boss battle",
+        "generate": "Generate",
+        "generating": "Generating...",
+        "generatingDescription": "Generating music ideas...",
+        "generatingAudio": "Synthesizing audio track...",
+        "clear": "Clear",
+        "outputTitle": "Result",
+        "songTitle": "Title",
+        "musicStyle": "Music Style",
+        "lyrics": "Lyrics",
+        "generatedTrack": "Generated Track",
+        "singLyrics": "Sing Lyrics",
+        "stopSinging": "Stop"
     },
     "outputDisplay": {
         "welcomeTitle": "Welcome!",
@@ -189,6 +225,7 @@ export const translations = {
     "sidebar": {
         "imageGenerator": "画像生成",
         "videoGenerator": "ビデオ生成",
+        "musicGenerator": "音楽生成",
         "gallery": "ギャラリー",
         "aiZone": "AIゾーン",
         "aiChat": "AIチャット",
@@ -219,6 +256,23 @@ export const translations = {
             "ピクセルを動きに組み立て中...",
             "AIが頑張っています！"
         ]
+    },
+    "musicGenerator": {
+        "title": "AI音楽ジェネレーター",
+        "promptLabel": "音楽の説明",
+        "promptPlaceholder": "例：宇宙のボス戦用のアップビートな8ビットチップチューン",
+        "generate": "生成",
+        "generating": "生成中...",
+        "generatingDescription": "音楽のアイデアを生成中...",
+        "generatingAudio": "オーディオトラックを合成中...",
+        "clear": "クリア",
+        "outputTitle": "結果",
+        "songTitle": "曲名",
+        "musicStyle": "音楽スタイル",
+        "lyrics": "歌詞",
+        "generatedTrack": "生成されたトラック",
+        "singLyrics": "歌詞を歌う",
+        "stopSinging": "停止"
     },
     "outputDisplay": {
         "welcomeTitle": "ようこそ！",

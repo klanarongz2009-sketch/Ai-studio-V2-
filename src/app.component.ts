@@ -14,8 +14,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { AiZoneComponent } from './components/ai-zone/ai-zone.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { BetaInfoComponent } from './components/beta-info/beta-info.component';
+import { MusicGeneratorComponent } from './components/music-generator/music-generator.component';
 
-export type Page = 'imageGenerator' | 'videoGenerator' | 'gallery' | 'aiZone' | 'aiChat';
+export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'gallery' | 'aiZone' | 'aiChat';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export type Page = 'imageGenerator' | 'videoGenerator' | 'gallery' | 'aiZone' | 
     SidebarComponent,
     ImageGeneratorComponent,
     VideoGeneratorComponent,
+    MusicGeneratorComponent,
     AiChatComponent,
     GalleryComponent,
     AiZoneComponent,
@@ -43,7 +45,7 @@ export class AppComponent {
   isSidebarOpen = signal(false);
   isSettingsOpen = signal(false);
   isBetaInfoOpen = signal(false);
-  activePage = signal<Page>('videoGenerator');
+  activePage = signal<Page>('musicGenerator');
 
   constructor() {
     // Initialize services to load settings and translations

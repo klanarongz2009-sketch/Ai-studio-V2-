@@ -29,6 +29,15 @@
         </button>
       </li>
       <li>
+        <button (click)="onNavigate('musicGenerator')"
+                [class.bg-brand-magenta]="activePage() === 'musicGenerator'"
+                [class.text-text-inverted]="activePage() === 'musicGenerator'"
+                class="w-full flex items-center gap-4 p-3 mb-2 border-2 border-border-primary hover:bg-brand-magenta/80 hover:text-text-inverted focus:bg-brand-magenta/80 focus:text-text-inverted transition-colors duration-150">
+          <app-music-icon />
+          <span>{{ t()('sidebar.musicGenerator') }}</span>
+        </button>
+      </li>
+      <li>
         <button (click)="onNavigate('gallery')"
                 [class.bg-brand-magenta]="activePage() === 'gallery'"
                 [class.text-text-inverted]="activePage() === 'gallery'"

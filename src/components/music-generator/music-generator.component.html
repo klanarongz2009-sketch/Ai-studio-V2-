@@ -1,0 +1,96 @@
+<div class="max-w-3xl mx-auto">
+  <h2 class="text-2xl text-center mb-6 text-brand-cyan">{{ t()('musicGenerator.title') }}</h2>
+
+  <div class="p-4 border-4 border-border-primary bg-surface-secondary/50 mb-6">
+    <label for="prompt-music" class="block mb-2 text-text-secondary">{{ t()('musicGenerator.promptLabel') }}</label>
+    <textarea 
+      id="prompt-music" 
+      [ngModel]="prompt()"
+      (ngModelChange)="prompt.set($event)"
+      [placeholder]="t()('musicGenerator.promptPlaceholder')"
+      rows="3" 
+      class="w-full p-2 bg-background border-2 border-border-secondary text-text-primary focus:border-brand-yellow focus:outline-none focus:ring-0 resize-none"
+      [disabled]="isLoading()"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+    <button 
+      (click)="onGenerate()" 
+      [disabled]="isGenerateDisabled()"
+      class="px-6 py-3 border-2 border-border-primary text-text-primary text-lg bg-brand-lime text-text-inverted shadow-pixel hover:shadow-pixel-active active:translate-x-1 active:translate-y-1 active:shadow-none disabled:bg-text-secondary disabled:text-text-primary disabled:shadow-pixel-disabled disabled:cursor-not-allowed transition-all duration-150">
+        @if(isLoading()) {
+          <span>{{ t()('musicGenerator.generating') }}</span>
+        } @else {
+          <span>{{ t()('musicGenerator.generate') }}</span>
+        }
+    </button>
+    <button 
+      (click)="onClear()" 
+      [disabled]="isLoading()"
+      class="px-6 py-3 border-2 border-border-primary text-text-primary text-lg bg-surface-primary shadow-pixel hover:shadow-pixel-active hover:bg-brand-magenta hover:text-text-inverted active:translate-x-1 active:translate-y-1 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-150">
+      {{ t()('musicGenerator.clear') }}
+    </button>
+  </div>
+  
+  <div class="w-full min-h-96 border-4 border-border-primary p-4 bg-black/20 flex items-center justify-center">
+    @if (isLoading()) {
+      <div class="text-center">
+        <div class="w-16 h-16 border-4 border-dashed border-brand-yellow rounded-full animate-spin mb-4 mx-auto"></div>
+        @if (loadingStep() === 'description') {
+          <p>{{ t()('musicGenerator.generatingDescription') }}</p>
+        } @else if (loadingStep() === 'synthesis') {
+          <p>{{ t()('musicGenerator.generatingAudio') }}</p>
+        } @else {
+          <p>{{ t()('musicGenerator.generating') }}</p>
+        }
+      </div>
+    } @else if (error()) {
+      <div class="text-center text-brand-magenta p-4">
+        <h3 class="text-xl mb-2">{{ t()('outputDisplay.errorTitle') }}</h3>
+        <p class="text-text-primary">{{ error() }}</p>
+      </div>
+    } @else if (generatedMusic(); as music) {
+      <div class="text-left w-full p-4 space-y-4 text-sm">
+        <h3 class="text-xl text-brand-yellow text-center mb-4">{{ t()('musicGenerator.outputTitle') }}</h3>
+
+        @if (generatedAudioUrl()) {
+            <div class="mb-6">
+                <h4 class="font-bold text-brand-cyan mb-2">{{ t()('musicGenerator.generatedTrack') }}:</h4>
+                <audio [src]="generatedAudioUrl()" controls class="w-full"></audio>
+            </div>
+        }
+
+        <div>
+            <h4 class="font-bold text-brand-cyan">{{ t()('musicGenerator.songTitle') }}:</h4>
+            <p class="text-text-primary pl-4">{{ music.title }}</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-brand-cyan">{{ t()('musicGenerator.musicStyle') }}:</h4>
+            <p class="text-text-primary pl-4 whitespace-pre-wrap">{{ music.style }}</p>
+        </div>
+        <div>
+            <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-brand-cyan">{{ t()('musicGenerator.lyrics') }}:</h4>
+                @if(music.lyrics && music.lyrics.trim().length > 0) {
+                    <button (click)="speakLyrics()"
+                            class="px-4 py-1 border-2 border-border-primary text-text-primary text-xs bg-brand-cyan text-text-inverted shadow-pixel hover:shadow-pixel-active active:translate-x-px active:translate-y-px active:shadow-none transition-all duration-150">
+                        <span>{{ isSpeaking() ? t()('musicGenerator.stopSinging') : t()('musicGenerator.singLyrics') }}</span>
+                    </button>
+                }
+            </div>
+            @if(music.lyrics && music.lyrics.trim().length > 0) {
+                <p class="text-text-primary pl-4 whitespace-pre-wrap">{{ music.lyrics }}</p>
+            } @else {
+                <p class="text-text-secondary pl-4 italic">(Instrumental)</p>
+            }
+        </div>
+      </div>
+    } @else {
+      <div class="text-center text-text-secondary">
+        <h3 class="text-xl mb-2 text-text-primary">{{ t()('outputDisplay.welcomeTitle') }}</h3>
+        <p>{{ t()('outputDisplay.welcomeMessage') }}</p>
+      </div>
+    }
+  </div>
+</div>

@@ -1,7 +1,18 @@
 <div class="max-w-4xl mx-auto flex flex-col h-[calc(100vh-12rem)] md:h-[calc(100vh-14rem)] border-4 border-border-primary bg-background/50">
   <!-- Header -->
-  <header class="p-4 border-b-4 border-border-primary bg-surface-secondary/50 flex-shrink-0">
+  <header class="p-4 border-b-4 border-border-primary bg-surface-secondary/50 flex-shrink-0 flex items-center justify-between">
+    <div class="w-16"></div> <!-- Spacer -->
     <h2 class="text-xl md:text-2xl text-center text-brand-cyan">{{ t()('aiChat.title') }}</h2>
+    <div class="w-16 flex justify-end">
+       <button 
+        (click)="clearChat()" 
+        [disabled]="isLoading()"
+        [title]="t()('aiChat.clearChat')"
+        class="p-2 border-2 border-border-primary text-text-primary hover:bg-brand-magenta hover:text-text-inverted active:translate-y-px active:translate-x-px disabled:opacity-50 disabled:cursor-not-allowed">
+        <span class="sr-only">{{ t()('aiChat.clearChat') }}</span>
+        <app-refresh-icon />
+      </button>
+    </div>
   </header>
 
   <!-- Chat History -->

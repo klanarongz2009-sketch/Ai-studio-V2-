@@ -9,6 +9,7 @@ import { SoundService } from '../../services/sound.service';
 
 import { UserIconComponent } from '../icons/user-icon.component';
 import { AiIconComponent } from '../icons/ai-icon.component';
+import { RefreshIconComponent } from '../icons/refresh-icon.component';
 
 export interface ChatMessage {
   role: 'user' | 'model';
@@ -18,7 +19,7 @@ export interface ChatMessage {
 @Component({
   selector: 'app-ai-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule, UserIconComponent, AiIconComponent],
+  imports: [CommonModule, FormsModule, UserIconComponent, AiIconComponent, RefreshIconComponent],
   templateUrl: './ai-chat.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -34,14 +35,31 @@ export class AiChatComponent implements OnInit {
   error = signal<string | null>(null);
   
   private chat: Chat | null = null;
+  private readonly CHAT_HISTORY_KEY = 'ai-chat-history';
   
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 
   constructor() {
+    // This effect runs whenever messages change, scrolling to the bottom.
     effect(() => {
-      // This effect runs whenever messages change, scrolling to the bottom.
       if (this.messages() && this.chatContainer) {
         this.scrollToBottom();
+      }
+    });
+
+    // This effect saves chat history to localStorage when loading is finished.
+    effect(() => {
+      if (!this.isLoading()) {
+        const currentMessages = this.messages();
+        // Avoid saving the initial state if it's just the welcome message
+        if (currentMessages.length > 1 || 
+           (currentMessages.length === 1 && currentMessages[0].content !== this.t()('aiChat.initialMessage'))) {
+          try {
+            localStorage.setItem(this.CHAT_HISTORY_KEY, JSON.stringify(currentMessages));
+          } catch (e) {
+            console.error('Failed to save chat history:', e);
+          }
+        }
       }
     });
 
@@ -54,10 +72,7 @@ export class AiChatComponent implements OnInit {
   ngOnInit() {
     try {
       this.chat = this.geminiService.startChat();
-      this.messages.set([{
-        role: 'model',
-        content: this.t()('aiChat.initialMessage')
-      }]);
+      this.loadChatHistory();
     } catch(e: any) {
       this.error.set(e.message || 'Failed to start chat session.');
     }
@@ -107,6 +122,47 @@ export class AiChatComponent implements OnInit {
       this.isLoading.set(false);
       this.scrollToBottom();
     }
+  }
+
+  clearChat() {
+    if (this.isLoading()) return;
+
+    this.soundService.playSound('click');
+    
+    try {
+      localStorage.removeItem(this.CHAT_HISTORY_KEY);
+      this.chat = this.geminiService.startChat(); // Re-initialize chat session
+      this.messages.set([{
+        role: 'model',
+        content: this.t()('aiChat.initialMessage')
+      }]);
+      this.error.set(null);
+      this.userInput.set('');
+    } catch (e: any) {
+      this.error.set(e.message || 'Failed to clear chat.');
+      this.soundService.playSound('error');
+    }
+  }
+
+  private loadChatHistory() {
+    try {
+        const savedHistory = localStorage.getItem(this.CHAT_HISTORY_KEY);
+        if (savedHistory) {
+            const parsedHistory = JSON.parse(savedHistory) as ChatMessage[];
+            if (Array.isArray(parsedHistory) && parsedHistory.length > 0) {
+                this.messages.set(parsedHistory);
+                return;
+            }
+        }
+    } catch (e) {
+        console.error('Failed to load or parse chat history:', e);
+        // If loading fails, we'll proceed to set the initial message.
+    }
+
+    this.messages.set([{
+        role: 'model',
+        content: this.t()('aiChat.initialMessage')
+    }]);
   }
 
   private scrollToBottom(): void {

@@ -85,7 +85,8 @@ export const translations = {
         "sending": "...",
         "initialMessage": "สวัสดี! ฉันคือ PIXEL ผู้ช่วยสร้างสรรค์ 8-bit ของคุณ วันนี้เราจะสร้างผลงานชิ้นเอกอะไรดี?",
         "roleUser": "คุณ",
-        "roleModel": "PIXEL"
+        "roleModel": "PIXEL",
+        "clearChat": "ล้างแชท"
     },
     "beta": {
       "badge": "เบต้า",
@@ -192,7 +193,8 @@ export const translations = {
         "sending": "...",
         "initialMessage": "Greetings! I am PIXEL, your 8-bit creative assistant. What masterpiece shall we craft today?",
         "roleUser": "You",
-        "roleModel": "PIXEL"
+        "roleModel": "PIXEL",
+        "clearChat": "Clear Chat"
     },
     "beta": {
       "badge": "BETA",
@@ -299,7 +301,8 @@ export const translations = {
         "sending": "...",
         "initialMessage": "こんにちは！私はあなたの8ビットクリエイティブアシスタント、PIXELです。今日はどんな傑作を作りましょうか？",
         "roleUser": "あなた",
-        "roleModel": "PIXEL"
+        "roleModel": "PIXEL",
+        "clearChat": "チャットをクリア"
     },
     "beta": {
       "badge": "ベータ",

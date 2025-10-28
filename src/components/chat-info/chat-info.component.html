@@ -1,0 +1,44 @@
+<div class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" (click)="close.emit()">
+  <div class="w-full max-w-lg bg-background border-4 border-border-primary p-6" (click)="$event.stopPropagation()">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl text-brand-yellow">{{ t()('chatInfo.title') }}</h2>
+      <button (click)="onClose()" class="p-2 border-2 border-border-primary hover:bg-brand-magenta hover:text-text-inverted">
+        <span class="sr-only">{{ t()('settings.close') }}</span>
+        <app-close-icon />
+      </button>
+    </div>
+
+    <div class="space-y-4 text-text-secondary max-h-[70vh] overflow-y-auto pr-2 text-sm leading-relaxed">
+      <p class="text-text-primary">{{ t()('chatInfo.description') }}</p>
+      
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('chatInfo.sectionTitle1') }}</h3>
+      <p>{{ t()('chatInfo.sectionContent1') }}</p>
+
+      <h3 class="text-lg text-brand-cyan pt-2 !mt-6">{{ t()('chatInfo.sectionTitle2') }}</h3>
+      <p>{{ t()('chatInfo.sectionContent2') }}</p>
+
+      <!-- FAQ Section -->
+      @if(t()('chatInfo.faqTitle') !== 'chatInfo.faqTitle') {
+        <div>
+          <h3 class="text-xl text-brand-yellow pt-4 !mt-8 border-t-2 border-border-secondary">{{ t()('chatInfo.faqTitle') }}</h3>
+          <div class="space-y-4 mt-4">
+            <div>
+              <p class="font-bold text-text-primary">{{ t()('chatInfo.faq1_q') }}</p>
+              <p class="pl-4">{{ t()('chatInfo.faq1_a') }}</p>
+            </div>
+            <div>
+              <p class="font-bold text-text-primary">{{ t()('chatInfo.faq2_q') }}</p>
+              <p class="pl-4">{{ t()('chatInfo.faq2_a') }}</p>
+            </div>
+            <div>
+              <p class="font-bold text-text-primary">{{ t()('chatInfo.faq3_q') }}</p>
+              <p class="pl-4">{{ t()('chatInfo.faq3_a') }}</p>
+            </div>
+          </div>
+        </div>
+      }
+
+      <p class="text-brand-lime font-bold text-center pt-4 !mt-8">{{ t()('chatInfo.thanks') }}</p>
+    </div>
+  </div>
+</div>

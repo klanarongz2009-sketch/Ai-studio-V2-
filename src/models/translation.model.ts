@@ -46,7 +46,7 @@ export const translations = {
     "musicGenerator": {
         "title": "เครื่องมือสร้างเพลง AI",
         "promptLabel": "คำอธิบายเพลง",
-        "promptPlaceholder": "เช่น เพลง 8-bit สุดมันส์สำหรับบอสไฟท์ในเกมอวกาศ",
+        "promptPlaceholder": "เช่น เพลงอิเล็กทรอนิกส์สำหรับขับรถตอนกลางคืน",
         "generate": "สร้าง",
         "generating": "กำลังสร้าง...",
         "generatingDescription": "กำลังสร้างไอเดียเพลง...",
@@ -80,13 +80,15 @@ export const translations = {
     },
     "aiChat": {
         "title": "AI Chat",
-        "promptPlaceholder": "พิมพ์ข้อความถึง PIXEL...",
+        "promptPlaceholder": "พิมพ์ข้อความถึง Hychat V0...",
         "send": "ส่ง",
         "sending": "...",
-        "initialMessage": "สวัสดี! ฉันคือ PIXEL ผู้ช่วยสร้างสรรค์ 8-bit ของคุณ วันนี้เราจะสร้างผลงานชิ้นเอกอะไรดี?",
+        "initialMessage": "สวัสดี! ฉันคือ Hychat V0 ผู้ช่วย AI สร้างสรรค์ของคุณ มีอะไรให้ช่วยในวันนี้?",
         "roleUser": "คุณ",
-        "roleModel": "PIXEL",
-        "clearChat": "ล้างแชท"
+        "roleModel": "Hychat V0",
+        "clearChat": "ล้างแชท",
+        "disclaimer": "Hychat V0 เก่งภาษาญี่ปุ่น/อังกฤษที่สุด แต่ก็เข้าใจภาษาไทยนะ ลองคุยได้เลย!",
+        "learnMore": "เรียนรู้เพิ่มเติม"
     },
     "beta": {
       "badge": "เบต้า",
@@ -107,6 +109,22 @@ export const translations = {
       "sectionTitle4": "แผนการพัฒนาในอนาคต",
       "sectionContent4": "แผนงานของเราประกอบด้วยการพัฒนาระบบแกลเลอรีที่มีประสิทธิภาพมากขึ้น การผสานรวมโมเดล AI ใหม่ๆ เพื่อสไตล์การสร้างสรรค์ที่หลากหลาย และฟีเจอร์สำหรับชุมชนเพื่อการทำงานร่วมกันและแบ่งปันผลงาน การเข้าร่วมของคุณจะช่วยให้เราปรับปรุงและจัดลำดับความสำคัญของการอัปเดตเหล่านี้สำหรับการเปิดตัวอย่างเป็นทางการ",
       "thanks": "ขอขอบคุณสำหรับการมีส่วนร่วมในโครงการ AI STUDIO (V2) เราขอขอบคุณสำหรับเวลาและความพยายามของคุณในการช่วยเราสร้างเครื่องมือสร้างสรรค์ที่ดีและทรงพลังยิ่งขึ้น"
+    },
+    "chatInfo": {
+      "title": "ข้อควรรู้เกี่ยวกับการใช้ภาษา",
+      "description": "Hychat V0 ถูกสร้างมาให้เก่งภาษาญี่ปุ่นและอังกฤษที่สุด แต่เราก็อยากให้คนไทยได้ลองใช้ด้วยภาษาของตัวเอง นี่คือสิ่งที่คุณควรรู้ครับ:",
+      "sectionTitle1": "ภาษาไทยอาจไม่สมบูรณ์",
+      "sectionContent1": "คำตอบภาษาไทยอาจมีข้อผิดพลาดหรือไม่เป็นธรรมชาติบ้างในบางครั้ง เพื่อผลลัพธ์ที่ดีที่สุด เราจึงแนะนำให้ใช้ภาษาญี่ปุ่นหรือภาษาอังกฤษก่อนครับ",
+      "sectionTitle2": "ถ้าไม่อยากใช้ภาษาอื่นล่ะ?",
+      "sectionContent2": "เราเข้าใจดี! หากคุณไม่สะดวกพิมพ์ภาษาอื่น หรือขี้เกียจใช้ตัวแปลภาษา ก็สามารถพิมพ์ไทยมาได้เลยครับ แค่โปรดเข้าใจว่า AI อาจจะตอบได้ไม่สมบูรณ์ 100% ในบางครั้ง",
+      "faqTitle": "คำถามที่พบบ่อย (FAQ)",
+      "faq1_q": "Q: ถ้าใช้ภาษาไทยแล้ว AI ตอบผิดพลาดล่ะ?",
+      "faq1_a": "A: เป็นไปได้ครับ เนื่องจาก AI ถูกฝึกฝนมากับข้อมูลภาษาญี่ปุ่นและอังกฤษเป็นหลัก หากเจอข้อผิดพลาด คุณสามารถลองปรับแก้คำถามให้ง่ายขึ้น หรือเปลี่ยนไปใช้ภาษาอังกฤษ/ญี่ปุ่นเพื่อความแม่นยำสูงสุดครับ",
+      "faq2_q": "Q: ทำไม AI ไม่ฉลาดกับภาษาไทยและภาษาอื่นๆ?",
+      "faq2_a": "A: AI ตัวนี้ (Hychat V0) เป็นเวอร์ชันที่ถูกปรับแต่งมาเป็นพิเศษให้มีความเชี่ยวชาญในภาษาญี่ปุ่นและอังกฤษ เพื่อตอบสนองความต้องการของผู้ใช้กลุ่มหลัก การทำให้ AI เก่งทุกภาษาต้องใช้ทรัพยากรในการพัฒนามหาศาล ซึ่งเราอาจเพิ่มเติมในเวอร์ชันถัดๆ ไปครับ",
+      "faq3_q": "Q: ทำไมภาษาที่ให้ผลลัพธ์ดีที่สุดคือภาษาญี่ปุ่น?",
+      "faq3_a": "A: เพราะ Hychat V0 ถูกออกแบบและฝึกฝนด้วยชุดข้อมูลภาษาญี่ปุ่นที่ใหญ่และมีคุณภาพสูงที่สุด ทำให้มีความเข้าใจในบริบท วัฒนธรรม และความแตกต่างเล็กๆ น้อยๆ ของภาษาญี่ปุ่นได้ดีกว่าภาษาอื่นครับ",
+      "thanks": "ขอบคุณที่เข้าใจและลองใช้งาน Hychat V0 ครับ!"
     }
   },
   en: {
@@ -154,7 +172,7 @@ export const translations = {
     "musicGenerator": {
         "title": "AI Music Generator",
         "promptLabel": "Music Description",
-        "promptPlaceholder": "e.g., An upbeat 8-bit chiptune for a space boss battle",
+        "promptPlaceholder": "e.g., An electronic track for a nighttime drive",
         "generate": "Generate",
         "generating": "Generating...",
         "generatingDescription": "Generating music ideas...",
@@ -188,13 +206,15 @@ export const translations = {
     },
     "aiChat": {
         "title": "AI Chat",
-        "promptPlaceholder": "Type a message to PIXEL...",
+        "promptPlaceholder": "Type a message to Hychat V0...",
         "send": "Send",
         "sending": "...",
-        "initialMessage": "Greetings! I am PIXEL, your 8-bit creative assistant. What masterpiece shall we craft today?",
+        "initialMessage": "Hello! I am Hychat V0, your creative AI assistant. How can I help you today?",
         "roleUser": "You",
-        "roleModel": "PIXEL",
-        "clearChat": "Clear Chat"
+        "roleModel": "Hychat V0",
+        "clearChat": "Clear Chat",
+        "disclaimer": "Note: Hychat V0 is optimized for Japanese/English. Conversations in other languages may be inaccurate.",
+        "learnMore": "Learn More"
     },
     "beta": {
       "badge": "BETA",
@@ -215,6 +235,22 @@ export const translations = {
       "sectionTitle4": "Future Development",
       "sectionContent4": "Our roadmap includes a more robust gallery system, integration of new AI models for diverse creative styles, and community features for collaboration and sharing. Your participation will help us refine and prioritize these updates for the official release.",
       "thanks": "Thank you for your contribution to the AI STUDIO (V2) project. We appreciate your time and effort in helping us build a better, more powerful creative tool."
+    },
+    "chatInfo": {
+      "title": "About Language Support",
+      "description": "Hychat V0 is an AI assistant optimized for conversations primarily in Japanese, followed by English. Here's what you need to know:",
+      "sectionTitle1": "Language Proficiency",
+      "sectionContent1": "Hychat V0's most effective and accurate language is Japanese (日本語). English is its second language. For other languages, the system may attempt to respond, but you might encounter incorrect or unnatural replies.",
+      "sectionTitle2": "Recommended Languages",
+      "sectionContent2": "For the most reliable and coherent experience, please use Japanese or English. Using other languages is experimental and may not function as expected.",
+      "faqTitle": "Frequently Asked Questions (FAQ)",
+      "faq1_q": "Q: What if I use my language and get errors?",
+      "faq1_a": "A: That's possible. Since the AI is primarily trained on Japanese and English data, errors can occur in other languages. You can try rephrasing your question more simply or switch to English/Japanese for the highest accuracy.",
+      "faq2_q": "Q: Why isn't the AI as smart in other languages?",
+      "faq2_a": "A: This version (Hychat V0) is specifically tuned for expertise in Japanese and English to serve its primary user base. Achieving fluency in all languages requires immense development resources, which may be considered for future versions.",
+      "faq3_q": "Q: Why does Japanese produce the best results?",
+      "faq3_a": "A: Hychat V0 was designed and trained with the largest, highest-quality Japanese dataset. This gives it a deeper understanding of the context, culture, and nuances of the Japanese language compared to others.",
+      "thanks": "Thank you for your understanding."
     }
   },
   ja: { 
@@ -262,7 +298,7 @@ export const translations = {
     "musicGenerator": {
         "title": "AI音楽ジェネレーター",
         "promptLabel": "音楽の説明",
-        "promptPlaceholder": "例：宇宙のボス戦用のアップビートな8ビットチップチューン",
+        "promptPlaceholder": "例：夜のドライブのための電子音楽トラック",
         "generate": "生成",
         "generating": "生成中...",
         "generatingDescription": "音楽のアイデアを生成中...",
@@ -296,13 +332,15 @@ export const translations = {
     },
     "aiChat": {
         "title": "AIチャット",
-        "promptPlaceholder": "PIXELにメッセージを入力...",
+        "promptPlaceholder": "Hychat V0にメッセージを入力...",
         "send": "送信",
         "sending": "...",
-        "initialMessage": "こんにちは！私はあなたの8ビットクリエイティブアシスタント、PIXELです。今日はどんな傑作を作りましょうか？",
+        "initialMessage": "こんにちは！私はクリエイティブAIアシスタントのHychat V0です。今日は何をお手伝いしましょうか？",
         "roleUser": "あなた",
-        "roleModel": "PIXEL",
-        "clearChat": "チャットをクリア"
+        "roleModel": "Hychat V0",
+        "clearChat": "チャットをクリア",
+        "disclaimer": "注意：Hychat V0は日本語/英語に最適化されています。他の言語での会話は不正確な場合があります。",
+        "learnMore": "詳細を見る"
     },
     "beta": {
       "badge": "ベータ",
@@ -323,6 +361,22 @@ export const translations = {
       "sectionTitle4": "今後の開発について",
       "sectionContent4": "私たちのロードマップには、より堅牢なギャラリーシステム、多様なクリエイティブスタイルに対応する新しいAIモデルの統合、および共同作業と共有のためのコミュニティ機能が含まれています。あなたの参加は、公式リリースに向けてこれらのアップデートを洗練させ、優先順位を付けるのに役立ちます。",
       "thanks": "AI STUDIO (V2) プロジェクトへのご貢献に感謝いたします。より良く、より強力なクリエイティブツールを構築するためのご協力に、心より感謝申し上げます。"
+    },
+    "chatInfo": {
+      "title": "言語サポートについて",
+      "description": "Hychat V0は、主に日本語、次に英語での会話に最適化されたAIアシスタントです。以下に知っておくべきことをまとめました。",
+      "sectionTitle1": "言語能力",
+      "sectionContent1": "Hychat V0が最も効果的で正確な言語は日本語です。英語は第二言語です。他の言語については、システムが応答を試みることがありますが、不正確または不自然な応答が発生する可能性があります。",
+      "sectionTitle2": "推奨言語",
+      "sectionContent2": "最も信頼性が高く、一貫性のある体験のために、日本語または英語を使用してください。他の言語の使用は実験的なものであり、期待どおりに機能しない可能性があります。",
+      "faqTitle": "よくある質問（FAQ）",
+      "faq1_q": "Q: 他の言語を使用してエラーが発生した場合はどうなりますか？",
+      "faq1_a": "A: はい、その可能性があります。AIは主に日本語と英語のデータでトレーニングされているため、他の言語ではエラーが発生することがあります。質問をより簡単な言葉で言い換えるか、最高の精度を得るために英語/日本語に切り替えることをお勧めします。",
+      "faq2_q": "Q: なぜAIは他の言語ではあまり賢くないのですか？",
+      "faq2_a": "A: このバージョン（Hychat V0）は、主要なユーザー層に対応するため、日本語と英語の専門知識に特化して調整されています。すべての言語で流暢さを実現するには、膨大な開発リソースが必要であり、将来のバージョンで検討される可能性があります。",
+      "faq3_q": "Q: なぜ日本語が最も良い結果をもたらすのですか？",
+      "faq3_a": "A: Hychat V0は、最大かつ最高品質の日本語データセットで設計・トレーニングされました。これにより、他の言語と比較して、日本語の文脈、文化、ニュアンスをより深く理解することができます。",
+      "thanks": "ご理解のほど、よろしくお願いいたします。"
     }
   }
 };

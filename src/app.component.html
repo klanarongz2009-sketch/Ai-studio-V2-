@@ -28,7 +28,7 @@
         <app-ai-zone />
       }
       @case ('aiChat') {
-        <app-ai-chat />
+        <app-ai-chat (openChatInfo)="openChatInfo()" />
       }
     }
   </main>
@@ -41,5 +41,8 @@
   }
   @if (isBetaInfoOpen()) {
     <app-beta-info (close)="closeBetaInfo()" />
+  }
+  @if (isChatInfoOpen()) {
+    <app-chat-info (close)="closeChatInfo()" />
   }
 </div>

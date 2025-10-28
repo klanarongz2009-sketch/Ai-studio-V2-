@@ -3,43 +3,66 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class MusicSynthesisService {
 
-  async generateChiptuneTrack(): Promise<Blob> {
+  async generateElectronicTrack(): Promise<Blob> {
     const duration = 15; // 15 seconds
     const sampleRate = 44100;
-    // Use OfflineAudioContext to render the audio in the background
     const offlineCtx = new OfflineAudioContext(2, sampleRate * duration, sampleRate);
 
     // --- Melody Generation ---
-    // A simple C Major Pentatonic scale to make the random melody sound more musical
-    const scale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 523.25*1.5, 523.25*2]; 
-    let currentTime = 0.1;
+    const scale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25, 783.99, 880.00]; 
+    const waveforms: OscillatorType[] = ['square', 'sawtooth', 'sine'];
+    let melodyTime = 0.1;
     
-    // Generate random notes until the track duration is filled
-    while (currentTime < duration - 0.5) {
-      // Pick a random note from the scale, sometimes an octave higher
-      const noteFreq = scale[Math.floor(Math.random() * scale.length)] * (Math.random() < 0.25 ? 2 : 1);
-      // Pick a random duration (eighth, quarter, or dotted eighth notes)
+    while (melodyTime < duration - 0.5) {
+      const noteFreq = scale[Math.floor(Math.random() * scale.length)] * (Math.random() < 0.3 ? 2 : 1);
       const noteDuration = (Math.floor(Math.random() * 3) + 1) * 0.125;
+      const waveType = waveforms[Math.floor(Math.random() * waveforms.length)];
 
-      // Create an oscillator for the note's sound wave (square for chiptune)
       const oscillator = offlineCtx.createOscillator();
-      oscillator.type = 'square';
-      oscillator.frequency.setValueAtTime(noteFreq, currentTime);
+      oscillator.type = waveType;
+      oscillator.frequency.setValueAtTime(noteFreq, melodyTime);
 
-      // Use a GainNode to control the volume and create a percussive envelope
       const gain = offlineCtx.createGain();
-      gain.gain.setValueAtTime(0, currentTime);
-      gain.gain.linearRampToValueAtTime(0.25, currentTime + 0.01); // Quick attack
-      gain.gain.linearRampToValueAtTime(0, currentTime + noteDuration); // Fast decay to zero
+      gain.gain.setValueAtTime(0, melodyTime);
+      gain.gain.linearRampToValueAtTime(0.2, melodyTime + 0.01); 
+      gain.gain.exponentialRampToValueAtTime(0.01, melodyTime + noteDuration);
 
       oscillator.connect(gain);
       gain.connect(offlineCtx.destination);
       
-      oscillator.start(currentTime);
-      oscillator.stop(currentTime + noteDuration);
+      oscillator.start(melodyTime);
+      oscillator.stop(melodyTime + noteDuration);
 
-      currentTime += noteDuration;
+      melodyTime += noteDuration;
     }
+    
+    // --- Bassline Generation ---
+    const bassNotes = [scale[0]/2, scale[3]/2, scale[5]/2, scale[0]/4];
+    let bassTime = 0.1;
+    let beat = 0;
+    while(bassTime < duration - 0.5) {
+        const bassFreq = bassNotes[beat % bassNotes.length];
+        const bassDuration = 0.25; // Quarter notes
+
+        const bassOsc = offlineCtx.createOscillator();
+        bassOsc.type = 'sine';
+        bassOsc.frequency.setValueAtTime(bassFreq, bassTime);
+
+        const bassGain = offlineCtx.createGain();
+        bassGain.gain.setValueAtTime(0, bassTime);
+        bassGain.gain.linearRampToValueAtTime(0.3, bassTime + 0.02);
+        bassGain.gain.linearRampToValueAtTime(0, bassTime + bassDuration);
+
+        bassOsc.connect(bassGain);
+        bassGain.connect(offlineCtx.destination);
+        
+        bassOsc.start(bassTime);
+        bassOsc.stop(bassTime + bassDuration);
+
+        bassTime += 0.5; // Eighth note rests between bass notes
+        beat++;
+    }
+
 
     const renderedBuffer = await offlineCtx.startRendering();
     return this.audioBufferToWav(renderedBuffer);

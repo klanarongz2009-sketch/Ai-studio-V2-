@@ -15,6 +15,7 @@ import { AiZoneComponent } from './components/ai-zone/ai-zone.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { BetaInfoComponent } from './components/beta-info/beta-info.component';
 import { MusicGeneratorComponent } from './components/music-generator/music-generator.component';
+import { ChatInfoComponent } from './components/chat-info/chat-info.component';
 
 export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'gallery' | 'aiZone' | 'aiChat';
 
@@ -35,6 +36,7 @@ export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'gal
     AiZoneComponent,
     SettingsComponent,
     BetaInfoComponent,
+    ChatInfoComponent,
   ],
 })
 export class AppComponent {
@@ -45,6 +47,7 @@ export class AppComponent {
   isSidebarOpen = signal(false);
   isSettingsOpen = signal(false);
   isBetaInfoOpen = signal(false);
+  isChatInfoOpen = signal(false);
   activePage = signal<Page>('musicGenerator');
 
   constructor() {
@@ -82,6 +85,16 @@ export class AppComponent {
 
   closeBetaInfo() {
     this.isBetaInfoOpen.set(false);
+    this.soundService.playSound('close');
+  }
+  
+  openChatInfo() {
+    this.isChatInfoOpen.set(true);
+    this.soundService.playSound('open');
+  }
+
+  closeChatInfo() {
+    this.isChatInfoOpen.set(false);
     this.soundService.playSound('close');
   }
   

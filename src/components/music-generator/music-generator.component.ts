@@ -53,7 +53,7 @@ export class MusicGeneratorComponent implements OnDestroy {
 
       // Step 2: Synthesize a new audio track based on the theme
       this.loadingStep.set('synthesis');
-      const audioBlob = await this.musicSynthesisService.generateChiptuneTrack();
+      const audioBlob = await this.musicSynthesisService.generateElectronicTrack();
       
       const url = URL.createObjectURL(audioBlob);
       this.generatedAudioUrl.set(url);

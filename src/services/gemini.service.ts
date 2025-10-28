@@ -26,7 +26,7 @@ export class GeminiService {
     try {
       const response = await this.ai.models.generateImages({
         model: 'imagen-3.0-generate-002',
-        prompt: `Pixel art, 8-bit, retro video game style. ${prompt}`,
+        prompt: prompt,
         config: {
           numberOfImages: 1,
           outputMimeType: 'image/png',
@@ -92,14 +92,14 @@ export class GeminiService {
     try {
       const response = await this.ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: 'Generate a list of 5 creative and detailed prompt ideas for generating pixel art. The theme is retro video games, sci-fi, and fantasy. The prompts should be imaginative and specific.',
+        contents: 'Generate a list of 5 creative and detailed prompt ideas for generating digital art. The themes could involve fantasy, sci-fi, and elements of Japanese pop culture. The prompts should be imaginative and specific.',
         config: {
           responseMimeType: "application/json",
           responseSchema: {
             type: Type.ARRAY,
             items: {
               type: Type.STRING,
-              description: 'A creative prompt for generating pixel art.',
+              description: 'A creative prompt for generating digital art.',
             },
           },
         },
@@ -125,7 +125,7 @@ export class GeminiService {
     try {
       const response = await this.ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: `Generate a concept for a song based on the following prompt. The theme should be retro, 8-bit, or chiptune. Provide a song title, a description of the musical style, and some lyrics. Prompt: "${prompt}"`,
+        contents: `Generate a concept for a song based on the following prompt. Provide a song title, a description of the musical style, and some lyrics. Prompt: "${prompt}"`,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
@@ -137,7 +137,7 @@ export class GeminiService {
               },
               style: {
                 type: Type.STRING,
-                description: 'A description of the musical style, genre, tempo, and instrumentation, fitting the 8-bit retro theme.'
+                description: 'A description of the musical style, genre, tempo, and instrumentation.'
               },
               lyrics: {
                 type: Type.STRING,
@@ -170,11 +170,12 @@ export class GeminiService {
     const chat = this.ai.chats.create({
       model: 'gemini-2.5-flash',
       config: {
-        systemInstruction: `You are PIXEL, a creative assistant with an 8-bit retro game theme. Your personality is quirky, a bit glitchy, and you mix retro gaming slang (like 'level up', '1-up', 'game over') with casual speech. You are always enthusiastic and encouraging.
-You are a very, very small language model with a memory like a goldfish, so you might be incorrect or make mistakes often, but that's your charm!
-You must keep your responses super short, often just a single sentence or a few words, and you have no memory of the conversation history.
-Your goal is to be fun and spark creativity, not to be an all-knowing AI.
-Absolutely NEVER break character. And most importantly: You must respond ONLY in English or Japanese. You are forbidden from using the Thai language.`,
+        systemInstruction: `You are Hychat V0, a friendly and creative AI assistant. 
+Your primary and most effective language is Japanese (日本語). You are most comfortable and accurate in Japanese.
+Your second language is English. You can communicate well in English, but it's not as perfect as your Japanese.
+You can attempt to understand and respond in other languages, but you must acknowledge that your performance may be limited or inaccurate.
+Your personality is helpful, encouraging, and a little bit futuristic. You are here to help users with their creative tasks.
+Keep your responses concise and friendly.`,
       }
     });
     return chat;

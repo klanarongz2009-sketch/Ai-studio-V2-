@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, effect, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, effect, ElementRef, inject, OnInit, signal, ViewChild, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Chat } from '@google/genai';
@@ -33,6 +33,8 @@ export class AiChatComponent implements OnInit {
   userInput = signal('');
   isLoading = signal(false);
   error = signal<string | null>(null);
+  
+  openChatInfo = output<void>();
   
   private chat: Chat | null = null;
   private readonly CHAT_HISTORY_KEY = 'ai-chat-history';
@@ -142,6 +144,11 @@ export class AiChatComponent implements OnInit {
       this.error.set(e.message || 'Failed to clear chat.');
       this.soundService.playSound('error');
     }
+  }
+
+  onLearnMore() {
+    this.soundService.playSound('click');
+    this.openChatInfo.emit();
   }
 
   private loadChatHistory() {

@@ -20,7 +20,7 @@ export class SettingsComponent {
   t = this.translationService.t;
 
   closeSettings = output<void>();
-  openBetaInfo = output<void>();
+  openMaintenanceInfo = output<void>();
 
   currentTheme = this.settingsService.theme;
   currentLanguage = this.settingsService.language;
@@ -36,9 +36,9 @@ export class SettingsComponent {
     this.translationService.setLanguage(language);
   }
 
-  onOpenBetaInfo() {
+  onOpenMaintenanceInfo() {
     this.soundService.playSound('click');
-    this.openBetaInfo.emit();
+    this.openMaintenanceInfo.emit();
   }
 
   onClose() {

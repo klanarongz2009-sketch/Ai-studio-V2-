@@ -5,13 +5,13 @@ import { SoundService } from '../../services/sound.service';
 import { CloseIconComponent } from '../icons/close-icon.component';
 
 @Component({
-  selector: 'app-beta-info',
+  selector: 'app-maintenance-info',
   standalone: true,
   imports: [CommonModule, CloseIconComponent],
   templateUrl: './beta-info.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BetaInfoComponent {
+export class MaintenanceInfoComponent {
   translationService = inject(TranslationService);
   soundService = inject(SoundService);
   t = this.translationService.t;

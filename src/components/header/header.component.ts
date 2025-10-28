@@ -20,6 +20,7 @@ export class HeaderComponent {
   
   toggleSidebar = output<void>();
   openSettings = output<void>();
+  openMaintenanceInfo = output<void>();
 
   onToggleSidebar() {
     this.soundService.playSound('click');
@@ -29,5 +30,10 @@ export class HeaderComponent {
   onOpenSettings() {
     this.soundService.playSound('click');
     this.openSettings.emit();
+  }
+
+  onOpenMaintenanceInfo() {
+    this.soundService.playSound('click');
+    this.openMaintenanceInfo.emit();
   }
 }

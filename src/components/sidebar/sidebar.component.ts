@@ -5,15 +5,13 @@ import { TranslationService } from '../../services/translation.service';
 import { SoundService } from '../../services/sound.service';
 import { ImageIconComponent } from '../icons/image-icon.component';
 import { VideoIconComponent } from '../icons/video-icon.component';
-import { GalleryIconComponent } from '../icons/gallery-icon.component';
-import { AiZoneIconComponent } from '../icons/ai-zone-icon.component';
 import { ChatIconComponent } from '../icons/chat-icon.component';
 import { MusicIconComponent } from '../icons/music-icon.component';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, ImageIconComponent, VideoIconComponent, MusicIconComponent, GalleryIconComponent, AiZoneIconComponent, ChatIconComponent],
+  imports: [CommonModule, ImageIconComponent, VideoIconComponent, MusicIconComponent, ChatIconComponent],
   templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

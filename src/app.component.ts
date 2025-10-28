@@ -10,14 +10,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ImageGeneratorComponent } from './components/image-generator/image-generator.component';
 import { VideoGeneratorComponent } from './components/video-generator/video-generator.component';
 import { AiChatComponent } from './components/ai-chat/ai-chat.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { AiZoneComponent } from './components/ai-zone/ai-zone.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { BetaInfoComponent } from './components/beta-info/beta-info.component';
+import { MaintenanceInfoComponent } from './components/beta-info/beta-info.component';
 import { MusicGeneratorComponent } from './components/music-generator/music-generator.component';
 import { ChatInfoComponent } from './components/chat-info/chat-info.component';
 
-export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'gallery' | 'aiZone' | 'aiChat';
+export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'aiChat';
 
 @Component({
   selector: 'app-root',
@@ -32,10 +30,8 @@ export type Page = 'imageGenerator' | 'videoGenerator' | 'musicGenerator' | 'gal
     VideoGeneratorComponent,
     MusicGeneratorComponent,
     AiChatComponent,
-    GalleryComponent,
-    AiZoneComponent,
     SettingsComponent,
-    BetaInfoComponent,
+    MaintenanceInfoComponent,
     ChatInfoComponent,
   ],
 })
@@ -46,7 +42,7 @@ export class AppComponent {
 
   isSidebarOpen = signal(false);
   isSettingsOpen = signal(false);
-  isBetaInfoOpen = signal(false);
+  isMaintenanceInfoOpen = signal(false);
   isChatInfoOpen = signal(false);
   activePage = signal<Page>('musicGenerator');
 
@@ -77,14 +73,14 @@ export class AppComponent {
     this.soundService.playSound('close');
   }
 
-  openBetaInfo() {
+  openMaintenanceInfo() {
     this.isSettingsOpen.set(false);
-    this.isBetaInfoOpen.set(true);
+    this.isMaintenanceInfoOpen.set(true);
     this.soundService.playSound('open');
   }
 
-  closeBetaInfo() {
-    this.isBetaInfoOpen.set(false);
+  closeMaintenanceInfo() {
+    this.isMaintenanceInfoOpen.set(false);
     this.soundService.playSound('close');
   }
   

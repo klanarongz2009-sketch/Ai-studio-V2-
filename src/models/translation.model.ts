@@ -12,8 +12,6 @@ export const translations = {
         "imageGenerator": "สร้างภาพ",
         "videoGenerator": "สร้างวิดีโอ",
         "musicGenerator": "สร้างเพลง",
-        "gallery": "แกลเลอรี",
-        "aiZone": "AI โซน",
         "aiChat": "AI Chat",
         "originalApp": "แอปต้นฉบับ"
     },
@@ -76,7 +74,7 @@ export const translations = {
         "langEn": "English",
         "langJa": "日本語",
         "close": "ปิด",
-        "betaProgram": "โปรแกรมเบต้า"
+        "appStatus": "สถานะแอป"
     },
     "aiChat": {
         "title": "AI Chat",
@@ -90,25 +88,25 @@ export const translations = {
         "disclaimer": "Hychat V0 เก่งภาษาญี่ปุ่น/อังกฤษที่สุด แต่ก็เข้าใจภาษาไทยนะ ลองคุยได้เลย!",
         "learnMore": "เรียนรู้เพิ่มเติม"
     },
-    "beta": {
-      "badge": "เบต้า",
+    "maintenance": {
+      "badge": "โหมดบำรุงรักษา",
       "learnMore": "เรียนรู้เพิ่มเติม",
-      "title": "โปรแกรมเบต้า AI STUDIO (V2)",
-      "description": "ขอขอบคุณที่เข้าร่วมโปรแกรมเบต้าของ AI STUDIO (V2) ในฐานะผู้เข้าร่วม คุณจะได้รับโอกาสพิเศษในการทดลองใช้ฟีเจอร์และการปรับปรุงล่าสุดของเราก่อนที่จะเปิดให้ใช้งานอย่างเป็นทางการ การมีส่วนร่วมของคุณมีความสำคัญอย่างยิ่งต่อการกำหนดทิศทางในอนาคตของแอปพลิเคชันของเรา",
-      "sectionTitle1": "เกี่ยวกับเวอร์ชันเบต้า",
-      "sectionContent1": "เวอร์ชัน 'เบต้า' คือซอฟต์แวร์รุ่นก่อนเผยแพร่จริง ซึ่งเปิดให้ผู้ใช้กลุ่มหนึ่งได้ทดสอบและให้ข้อคิดเห็น แม้ว่าเวอร์ชันนี้จะรวมฟีเจอร์ใหม่ๆ และฟีเจอร์ทดลองไว้ แต่ยังอยู่ระหว่างการพัฒนาอย่างต่อเนื่อง โดยมีวัตถุประสงค์หลักเพื่อระบุและแก้ไขปัญหาก่อนการเปิดตัวสู่สาธารณะอย่างเป็นทางการ",
-      "sectionTitle2": "สิ่งที่ควรทราบระหว่างการใช้งาน",
-      "sectionContent2_1_title": "ความเสถียรของระบบ:",
-      "sectionContent2_1_text": "คุณอาจพบกับพฤติกรรมที่ไม่คาดคิด ข้อบกพร่องด้านการแสดงผล หรือฟังก์ชันการทำงานที่ยังไม่สมบูรณ์ เราขอความกรุณาให้คุณรายงานปัญหาเหล่านี้เพื่อช่วยเราปรับปรุงความเสถียรและประสิทธิภาพของซอฟต์แวร์",
-      "sectionContent2_2_title": "ประสิทธิภาพที่อาจผันผวน:",
-      "sectionContent2_2_text": "เวอร์ชันนี้ใช้โมเดล AI และฟีเจอร์ขั้นสูงที่ยังอยู่ระหว่างการทดลอง ดังนั้นประสิทธิภาพการทำงานอาจมีความผันผวน ระยะเวลาในการสร้างผลงานและการใช้ทรัพยากรอาจแตกต่างกันไปในแต่ละงาน เนื่องจากเรากำลังปรับปรุงโครงสร้างพื้นฐานอย่างต่อเนื่อง",
-      "sectionContent2_3_title": "ข้อมูลและผลงานที่กำลังดำเนินการ:",
-      "sectionContent2_3_text": "แม้ว่าเราได้ใช้มาตรการป้องกันความสมบูรณ์ของข้อมูลอย่างเข้มงวด แต่ธรรมชาติของสภาพแวดล้อมแบบเบต้าย่อมมีความเสี่ยงเล็กน้อยที่ข้อมูลอาจสูญหาย เราขอแนะนำเป็นอย่างยิ่งให้คุณบันทึกหรือส่งออกผลงานที่สำคัญเป็นระยะเพื่อลดผลกระทบจากปัญหาที่อาจเกิดขึ้น",
-      "sectionTitle3": "ความสำคัญของความคิดเห็นของคุณ",
-      "sectionContent3": "ความคิดเห็นของคุณคือทรัพยากรที่มีค่าที่สุดของโปรแกรมเบต้านี้ รายงานข้อบกพร่องโดยละเอียด คำขอฟีเจอร์ และข้อเสนอแนะด้านการใช้งาน มีความสำคัญอย่างยิ่งต่อกระบวนการพัฒนาของเรา ข้อมูลจากคุณจะส่งผลโดยตรงต่อการปรับปรุงผลิตภัณฑ์และการจัดลำดับความสำคัญของแผนการพัฒนาของเรา",
-      "sectionTitle4": "แผนการพัฒนาในอนาคต",
-      "sectionContent4": "แผนงานของเราประกอบด้วยการพัฒนาระบบแกลเลอรีที่มีประสิทธิภาพมากขึ้น การผสานรวมโมเดล AI ใหม่ๆ เพื่อสไตล์การสร้างสรรค์ที่หลากหลาย และฟีเจอร์สำหรับชุมชนเพื่อการทำงานร่วมกันและแบ่งปันผลงาน การเข้าร่วมของคุณจะช่วยให้เราปรับปรุงและจัดลำดับความสำคัญของการอัปเดตเหล่านี้สำหรับการเปิดตัวอย่างเป็นทางการ",
-      "thanks": "ขอขอบคุณสำหรับการมีส่วนร่วมในโครงการ AI STUDIO (V2) เราขอขอบคุณสำหรับเวลาและความพยายามของคุณในการช่วยเราสร้างเครื่องมือสร้างสรรค์ที่ดีและทรงพลังยิ่งขึ้น"
+      "title": "สถานะและการอัปเดตแอปพลิเคชัน",
+      "description": "หลังจากผ่านช่วงเวลาของการพัฒนาอย่างต่อเนื่อง ตอนนี้ AI Studio V2 ถือว่ามีฟีเจอร์ครบถ้วนสมบูรณ์แล้วและได้เปลี่ยนเข้าสู่โหมดบำรุงรักษาอย่างเป็นทางการ ซึ่งหมายความว่าแม้แอปพลิเคชันจะมีความเสถียรและทำงานได้อย่างสมบูรณ์ แต่จะไม่มีการอัปเดตฟีเจอร์หลักใหม่ๆ หรือเพิ่มเนื้อหาใหม่เข้ามาอีกต่อไป เป้าหมายหลักของเราได้เปลี่ยนไปเป็นการรับประกันเสถียรภาพในระยะยาวและแก้ไขปัญหาที่สำคัญเมื่อเกิดขึ้น เพื่อให้คุณมีเครื่องมือสร้างสรรค์ที่เชื่อถือได้",
+      "sectionTitle1": "สถานะการอัปเดตปัจจุบัน",
+      "sectionContent1": "ในขณะนี้ แอปพลิเคชันอยู่ในสถานะที่เสถียรอย่างยิ่ง โดยฟีเจอร์ที่มีอยู่ทั้งหมดทำงานได้ตามที่คาดหวัง เรามุ่งมั่นที่จะรักษาความน่าเชื่อถือนี้ไว้ การอัปเดตในอนาคตจะจำกัดอยู่เพียง 'hotfix' ที่จำเป็นเท่านั้น ซึ่งเป็นแพตช์ที่ออกแบบมาโดยเฉพาะเพื่อแก้ไขข้อบกพร่องที่ร้ายแรงซึ่งส่งผลกระทบต่อการทำงานหลัก หรือเพื่อจัดการกับช่องโหว่ด้านความปลอดภัยที่สำคัญที่อาจถูกค้นพบ ความปลอดภัยและประสบการณ์การใช้งานที่ราบรื่นของคุณยังคงเป็นสิ่งสำคัญสูงสุดของเรา",
+      "faqTitle": "คำถามที่พบบ่อย (FAQ)",
+      "faq1_q": "Q: จะมีการเพิ่มโมเดล AI ใหม่ๆ ในอนาคตหรือไม่?",
+      "faq1_a": "A: ไม่ครับ การรวมโมเดล AI ใหม่ๆ เข้ามาเป็นงานขนาดใหญ่ซึ่งจัดอยู่ในการพัฒนาฟีเจอร์ใหม่ เนื่องจากแอปอยู่ในโหมดบำรุงรักษาแล้ว เราจึงจะไม่เพิ่มโมเดลใหม่เข้ามาอีก แต่โมเดลที่มีอยู่จะยังคงได้รับการสนับสนุนต่อไปครับ",
+      "faq2_q": "Q: หากฉันเจอบั๊กควรทำอย่างไร?",
+      "faq2_a": "A: กรุณาแจ้งให้เราทราบครับ แม้ว่าเราจะไม่ได้พัฒนาฟีเจอร์ใหม่อย่างต่อเนื่อง แต่รายงานของคุณมีความสำคัญอย่างยิ่งต่อการรักษาสภาพของแอป เราจะตรวจสอบรายงานทั้งหมดและจัดลำดับความสำคัญในการแก้ไขบั๊กที่ร้ายแรงซึ่งส่งผลกระทบอย่างรุนแรงต่อการทำงานหลักของแอปพลิเคชัน",
+      "faq3_q": "Q: ทำไมแอปจึงเข้าสู่โหมดบำรุงรักษา?",
+      "faq3_a": "A: การเปลี่ยนเข้าสู่โหมดบำรุงรักษาช่วยให้ทีมพัฒนาของเราสามารถจัดสรรทรัพยากรและมุ่งเน้นไปที่โปรเจกต์ใหม่ๆ ที่มีนวัตกรรมและเครื่องมือ AI รุ่นต่อไปได้ ในขณะเดียวกันก็ยังคงรับประกันว่าแอปพลิเคชันนี้จะยังคงเป็นเครื่องมือที่มีประโยชน์และเชื่อถือได้สำหรับผู้ใช้ที่ทุ่มเทของเรา",
+      "faq4_q": "Q: ฉันต้องการฟีเจอร์ใหม่ แต่ถ้าจะไม่มีการอัปเดตฟีเจอร์ใหม่แล้วจะเป็นอย่างไร?",
+      "faq4_a": "A: เราขอขอบคุณสำหรับทุกข้อเสนอแนะจากผู้ใช้ครับ! แม้ว่าเราจะไม่ได้เพิ่มฟีเจอร์ใหม่ๆ ในแอปพลิเคชันเวอร์ชันนี้แล้ว แต่ทุกความคิดเห็นมีค่าสำหรับเราอย่างยิ่ง เราจะรวบรวมและพิจารณาไอเดียเหล่านี้เพื่อเป็นแนวทางในการพัฒนาโปรเจกต์ในอนาคตและแอปพลิเคชันใหม่ๆ ที่อาจเกิดขึ้น ความคิดเห็นของคุณช่วยให้เราเข้าใจว่าผู้ใช้ของเรากำลังมองหาอะไรอยู่ครับ",
+      "faq5_q": "Q: ในเมื่อไม่มีฟีเจอร์ใหม่แล้ว ฉันจะสามารถให้ข้อเสนอแนะได้อย่างไร?",
+      "faq5_a": "A: แม้จะอยู่ในโหมดบำรุงรักษา แต่ความคิดเห็นของคุณก็ยังคงมีความสำคัญอย่างยิ่งในการช่วยเราตรวจหาปัญหาที่ร้ายแรง หากคุณเจอบั๊กที่ส่งผลกระทบต่อการใช้งานอย่างมีนัยสำคัญ กรุณาแจ้งให้เราทราบ สำหรับข้อเสนอแนะเกี่ยวกับฟีเจอร์ใหม่ แม้ว่าจะไม่ได้ถูกนำมาใช้ในแอปนี้ เราก็ยังคงสนับสนุนให้คุณแบ่งปันความคิดเห็นเหล่านั้นครับ ข้อมูลเหล่านี้มีความสำคัญอย่างยิ่งต่อการวิจัยและพัฒนาเครื่องมือสร้างสรรค์รุ่นต่อไปของเรา",
+      "thanks": "ขอขอบคุณสำหรับความเข้าใจและการสนับสนุนอย่างต่อเนื่องของคุณ"
     },
     "chatInfo": {
       "title": "ข้อควรรู้เกี่ยวกับการใช้ภาษา",
@@ -138,8 +136,6 @@ export const translations = {
         "imageGenerator": "Image Gen",
         "videoGenerator": "Video Gen",
         "musicGenerator": "Music Gen",
-        "gallery": "Gallery",
-        "aiZone": "AI Zone",
         "aiChat": "AI Chat",
         "originalApp": "Original App"
     },
@@ -202,7 +198,7 @@ export const translations = {
         "langEn": "English",
         "langJa": "日本語",
         "close": "Close",
-        "betaProgram": "Beta Program"
+        "appStatus": "App Status"
     },
     "aiChat": {
         "title": "AI Chat",
@@ -216,25 +212,25 @@ export const translations = {
         "disclaimer": "Note: Hychat V0 is optimized for Japanese/English. Conversations in other languages may be inaccurate.",
         "learnMore": "Learn More"
     },
-    "beta": {
-      "badge": "BETA",
+    "maintenance": {
+      "badge": "Maintenance",
       "learnMore": "Learn More",
-      "title": "AI STUDIO (V2) Beta Program",
-      "description": "Thank you for participating in the AI STUDIO (V2) Beta Program. As a beta participant, you have the unique opportunity to experience our latest features and improvements before they are made available to the general public. Your involvement is instrumental in shaping the future of our application.",
-      "sectionTitle1": "Understanding the Beta Version",
-      "sectionContent1": "A 'beta' version is a pre-release of software that is made available to a select group of users for testing and feedback. While this version includes new and experimental features, it is still under active development. Its primary purpose is to identify and resolve issues before the official public release.",
-      "sectionTitle2": "What to Expect",
-      "sectionContent2_1_title": "Potential for Instability:",
-      "sectionContent2_1_text": "You may encounter unexpected behavior, visual imperfections, or features that do not function as intended. We kindly ask that you report these occurrences to help us improve the software's stability and performance.",
-      "sectionContent2_2_title": "Performance Variations:",
-      "sectionContent2_2_text": "This version utilizes advanced, experimental AI models and features. Consequently, performance may vary. Generation times and resource utilization can differ between tasks as we continue to optimize our backend infrastructure.",
-      "sectionContent2_3_title": "Data and Work-in-Progress:",
-      "sectionContent2_3_text": "While we have implemented robust data integrity measures, the nature of a beta environment means there is a small but non-zero risk of data loss. We strongly advise you to save or export any critical work periodically to mitigate potential issues.",
-      "sectionTitle3": "The Importance of Your Feedback",
-      "sectionContent3": "Your feedback is the most valuable asset of this beta program. Detailed bug reports, feature requests, and usability suggestions are critical for our development process. Your input directly influences product enhancements and the prioritization of our development roadmap.",
-      "sectionTitle4": "Future Development",
-      "sectionContent4": "Our roadmap includes a more robust gallery system, integration of new AI models for diverse creative styles, and community features for collaboration and sharing. Your participation will help us refine and prioritize these updates for the official release.",
-      "thanks": "Thank you for your contribution to the AI STUDIO (V2) project. We appreciate your time and effort in helping us build a better, more powerful creative tool."
+      "title": "Application Status & Updates",
+      "description": "After a period of active development, AI Studio V2 is now considered feature-complete and has transitioned into maintenance mode. This means that while the application is stable and fully functional, it will no longer receive major feature updates or new content. Our primary focus has shifted to ensuring its long-term stability and addressing critical issues as they arise, providing you with a reliable creative tool.",
+      "sectionTitle1": "Current Update Status",
+      "sectionContent1": "The application is currently in a highly stable state, with all existing features operating as intended. Our commitment is to maintain this reliability. Future updates will be limited to essential 'hotfixes'—patches specifically designed to correct critical, functionality-breaking bugs or to address significant security vulnerabilities that may be discovered. Your security and a smooth user experience remain our top priorities.",
+      "faqTitle": "Frequently Asked Questions (FAQ)",
+      "faq1_q": "Q: Will new AI models be added in the future?",
+      "faq1_a": "A: No. Integrating new AI models is a significant task that falls under new feature development. As the app is now in maintenance mode, we will not be adding new models. The existing models will continue to be supported.",
+      "faq2_q": "Q: What should I do if I find a bug?",
+      "faq2_a": "A: Please report it. While we are not actively developing new features, your reports are crucial for maintaining the app's health. We will investigate all reports and prioritize fixing critical bugs that severely impact the application's core functionality.",
+      "faq3_q": "Q: Why has the app entered maintenance mode?",
+      "faq3_a": "A: Transitioning to maintenance mode allows our development team to allocate resources and focus on innovative new projects and the next generation of AI tools, while ensuring this application remains a dependable and useful tool for our dedicated users.",
+      "faq4_q": "Q: I would like a new feature. What happens if no new features are being developed?",
+      "faq4_a": "A: We appreciate all user suggestions! While we are no longer adding new features to this version of the application, all feedback is valuable to us. We collect and review these ideas as they help inform the direction of our future projects and potential new applications. Your input helps us understand what our users are looking for.",
+      "faq5_q": "Q: Since there are no new features, how can I provide feedback or suggestions?",
+      "faq5_a": "A: Even in maintenance mode, your feedback is incredibly important for identifying critical issues. If you encounter a significant bug, please report it. For feature suggestions, while they won't be implemented in this app, we still encourage you to share them. This feedback is crucial for our research and development of the next generation of creative tools.",
+      "thanks": "Thank you for your understanding and continued support."
     },
     "chatInfo": {
       "title": "About Language Support",
@@ -264,8 +260,6 @@ export const translations = {
         "imageGenerator": "画像生成",
         "videoGenerator": "ビデオ生成",
         "musicGenerator": "音楽生成",
-        "gallery": "ギャラリー",
-        "aiZone": "AIゾーン",
         "aiChat": "AIチャット",
         "originalApp": "元のアプリ"
     },
@@ -328,7 +322,7 @@ export const translations = {
         "langEn": "英語",
         "langJa": "日本語",
         "close": "閉じる",
-        "betaProgram": "ベータプログラム"
+        "appStatus": "アプリのステータス"
     },
     "aiChat": {
         "title": "AIチャット",
@@ -342,25 +336,25 @@ export const translations = {
         "disclaimer": "注意：Hychat V0は日本語/英語に最適化されています。他の言語での会話は不正確な場合があります。",
         "learnMore": "詳細を見る"
     },
-    "beta": {
-      "badge": "ベータ",
+    "maintenance": {
+      "badge": "メンテナンス",
       "learnMore": "詳細を見る",
-      "title": "AI STUDIO (V2) ベータプログラム",
-      "description": "AI STUDIO (V2) ベータプログラムにご参加いただき、誠にありがとうございます。ベータ参加者として、あなたは一般公開前に最新の機能や改善を体験するユニークな機会を得られます。あなたの参加は、私たちのアプリケーションの未来を形作る上で不可欠です。",
-      "sectionTitle1": "ベータ版について",
-      "sectionContent1": "「ベータ」版とは、テストとフィードバックのために一部のユーザーに提供される、ソフトウェアのプレリリース版です。このバージョンには新機能や実験的な機能が含まれていますが、まだ活発な開発段階にあります。その主な目的は、公式の一般公開前に問題を特定し、解決することです。",
-      "sectionTitle2": "ご利用にあたっての注意事項",
-      "sectionContent2_1_title": "不安定性の可能性：",
-      "sectionContent2_1_text": "予期しない動作、表示の不具合、または意図したとおりに機能しない機能に遭遇する可能性があります。ソフトウェアの安定性とパフォーマンスを向上させるため、これらの事象をご報告いただけますようお願い申し上げます。",
-      "sectionContent2_2_title": "パフォーマンスの変動：",
-      "sectionContent2_2_text": "このバージョンでは、先進的で実験的なAIモデルと機能を利用しています。そのため、パフォーマンスが変動する可能性があります。バックエンドインフラの最適化を継続しているため、生成時間やリソース使用率はタスクによって異なる場合があります。",
-      "sectionContent2_3_title": "データと作業中の作品：",
-      "sectionContent2_3_text": "堅牢なデータ整合性対策を講じていますが、ベータ環境の性質上、データ損失のリスクがゼロではありません。潜在的な問題を軽減するため、重要な作業は定期的に保存またはエクスポートすることを強くお勧めします。",
-      "sectionTitle3": "フィードバックの重要性",
-      "sectionContent3": "あなたのフィードバックは、このベータプログラムの最も価値のある資産です。詳細なバグレポート、機能リクエスト、ユーザビリティに関する提案は、私たちの開発プロセスにとって非常に重要です。あなたの意見は、製品の強化と開発ロードマップの優先順位付けに直接影響します。",
-      "sectionTitle4": "今後の開発について",
-      "sectionContent4": "私たちのロードマップには、より堅牢なギャラリーシステム、多様なクリエイティブスタイルに対応する新しいAIモデルの統合、および共同作業と共有のためのコミュニティ機能が含まれています。あなたの参加は、公式リリースに向けてこれらのアップデートを洗練させ、優先順位を付けるのに役立ちます。",
-      "thanks": "AI STUDIO (V2) プロジェクトへのご貢献に感謝いたします。より良く、より強力なクリエイティブツールを構築するためのご協力に、心より感謝申し上げます。"
+      "title": "アプリケーションのステータスと更新",
+      "description": "積極的な開発期間を経て、AI Studio V2は現在、機能が完成したと見なされ、メンテナンスモードに移行しました。これは、アプリケーションが安定して完全に機能する一方で、主要な機能の更新や新しいコンテンツの追加は行われないことを意味します。私たちの主な焦点は、長期的な安定性を確保し、発生した重大な問題に対処することで、信頼性の高いクリエイティブツールを提供することに移っています。",
+      "sectionTitle1": "現在の更新状況",
+      "sectionContent1": "アプリケーションは現在、非常に安定した状態にあり、既存のすべての機能は意図したとおりに動作しています。私たちはこの信頼性を維持することをお約束します。将来の更新は、不可欠な「ホットフィックス」に限定されます。これは、機能に重大な影響を与えるバグを修正したり、発見される可能性のある重大なセキュリティ脆弱性に対処するために特別に設計されたパッチです。お客様のセキュリティとスムーズなユーザーエクスペリエンスは、引き続き私たちの最優先事項です。",
+      "faqTitle": "よくある質問（FAQ）",
+      "faq1_q": "Q: 将来、新しいAIモデルは追加されますか？",
+      "faq1_a": "A: いいえ。新しいAIモデルの統合は、新機能開発に分類される重要なタスクです。アプリは現在メンテナンスモードにあるため、新しいモデルの追加は行いません。既存のモデルは引き続きサポートされます。",
+      "faq2_q": "Q: バグを見つけた場合はどうすればよいですか？",
+      "faq2_a": "A: ご報告ください。新機能の開発は積極的に行っていませんが、皆様からのご報告はアプリの健全性を維持するために不可欠です。すべての報告を調査し、アプリケーションのコア機能に深刻な影響を与える重大なバグの修正を優先します。",
+      "faq3_q": "Q: なぜアプリはメンテナンスモードに移行したのですか？",
+      "faq3_a": "A: メンテナンスモードに移行することで、開発チームはリソースを革新的な新しいプロジェクトや次世代のAIツールに集中させることができ、同時にこのアプリケーションが熱心なユーザーにとって信頼できる便利なツールであり続けることを保証できます。",
+      "faq4_q": "Q: 新しい機能が欲しいのですが、新機能が開発されない場合はどうなりますか？",
+      "faq4_a": "A: ユーザーの皆様からのご提案に心より感謝いたします！このバージョンのアプリケーションに新機能を追加する予定はございませんが、すべてのフィードバックは私たちにとって貴重です。これらのアイデアは、将来のプロジェクトや新しいアプリケーションの方向性を検討する上で参考にさせていただきます。皆様のご意見は、ユーザーが何を求めているかを理解するのに役立ちます。",
+      "faq5_q": "Q: 新機能がない中で、どのようにフィードバックや提案をすればよいですか？",
+      "faq5_a": "A: メンテナンスモードであっても、重大な問題を特定するために皆様からのフィードバックは非常に重要です。重大なバグに遭遇した場合は、ご報告ください。機能に関するご提案については、このアプリでは実装されませんが、ぜひお聞かせください。これらのフィードバックは、次世代のクリエイティブツールの研究開発にとって極めて重要です。",
+      "thanks": "ご理解と継続的なご支援に感謝いたします。"
     },
     "chatInfo": {
       "title": "言語サポートについて",

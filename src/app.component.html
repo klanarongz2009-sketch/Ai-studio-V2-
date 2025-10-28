@@ -2,6 +2,7 @@
   <app-header 
     (toggleSidebar)="toggleSidebar()" 
     (openSettings)="openSettings()"
+    (openMaintenanceInfo)="openMaintenanceInfo()"
   />
   <app-sidebar 
     [isOpen]="isSidebarOpen()" 
@@ -21,12 +22,6 @@
       @case ('musicGenerator') {
         <app-music-generator />
       }
-      @case ('gallery') {
-        <app-gallery />
-      }
-      @case ('aiZone') {
-        <app-ai-zone />
-      }
       @case ('aiChat') {
         <app-ai-chat (openChatInfo)="openChatInfo()" />
       }
@@ -36,11 +31,11 @@
   @if (isSettingsOpen()) {
     <app-settings 
       (closeSettings)="closeSettings()"
-      (openBetaInfo)="openBetaInfo()"
+      (openMaintenanceInfo)="openMaintenanceInfo()"
      />
   }
-  @if (isBetaInfoOpen()) {
-    <app-beta-info (close)="closeBetaInfo()" />
+  @if (isMaintenanceInfoOpen()) {
+    <app-maintenance-info (close)="closeMaintenanceInfo()" />
   }
   @if (isChatInfoOpen()) {
     <app-chat-info (close)="closeChatInfo()" />
